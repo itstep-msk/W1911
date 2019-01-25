@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Аттрибуты</title> <!-- Задает заголовок для вкладки браузера -->
+</head>
+<body>
+	<!-- Синтаксис атрибута <html атрибут="значение"> </html>-->
+	<!-- тег <a> служит для создание ссылок. Без атрибута не работает да и не имеет смысла -->
+	<a href="http://yandex.ru" target="_blank">Открыть сайт</a>
+
+	<!-- Порядок атрибудов не имеет значения. Они могут записываться в хаотичном порядке -->
+
+	<!-- class="className01 className02" => "className01 className02" -->
+	<!-- class=className01 className02 => "className01" -->
+
+	<!-- Изображение -->
+	<!-- src="Путь до изображения" 
+	например src="http://site.ru/apple.jpg"-->
+	<img src="https://static8.depositphotos.com/1016676/815/i/450/depositphotos_8156139-stock-photo-fruits.jpg" title="Текст при наведении" alt="Тут фрукты" width="200px">
+	<!-- 
+	src="" путь до изоражения
+	width="100px", height="200px" размеры изображения
+	alt="Текст если картинка отсутствует"
+	title="Текст при наведении"
+	-->
+	<!-- Изображение как ссылка -->
+	<a href="http://yandex.ru">
+		<img src="https://static8.depositphotos.com/1016676/815/i/450/depositphotos_8156139-stock-photo-fruits.jpg" title="Текст при наведении" alt="Тут фрукты" width="200px">
+	</a>
+
+	<!-- Прсто еще одно изображение как ссылка -->
+	<a href="https://static8.depositphotos.com/1016676/815/i/450/depositphotos_8156139-stock-photo-fruits.jpg" target="_blank">
+		<img src="https://static8.depositphotos.com/1016676/815/i/450/depositphotos_8156139-stock-photo-fruits.jpg" title="Текст при наведении" alt="Тут фрукты" width="200px">
+	</a>
+
+	<ul>
+		<li>Круг
+			<ul>
+				<li>Красный
+					<ul>
+						<li>Большой</li>
+						<li>Маленький</li>
+					</ul>
+				</li>
+				<li>Синий</li>
+			</ul>
+		</li>
+		<li>Квадрат</li>
+		<li>Треугольник</li>
+	</ul>
+
+	<ol>
+		<li>Круг</li>
+		<li>Квадрат</li>
+		<li>Треугольник</li>
+	</ol>
+</body>
+</html>
+
