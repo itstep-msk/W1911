@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS start</title>
+	
+</head>
+<body>
+<!-- Старый способ -->
+<center>
+	<font color="red">
+		<b>
+			Hello world
+		</b>
+	</font>
+</center>
+<!-- Новый способ, через CSS -->
+<div style="color: red; text-align: center; font-weight: bold;">Hello world</div>
+
+<!-- 3 способа написание стилей -->
+<!-- 
+	1) Через атрибут style=""
+	2) Через теги <style></style>
+	3) Отдельным файлом, который подключается через 
+	<link rel="stylesheet" href="Ссылка/на/файл"
+ -->
+
+ <!-- через теги style или атрибут style ? -->
+ <div style="color: green; text-align: center; font-weight: bold;">Hello world</div>
+ <div style="color: green; text-align: center; font-weight: bold;">Hello world</div>
+ <div style="color: green; text-align: center; font-weight: bold;">Hello world</div>
+ <div style="color: green; text-align: center; font-weight: bold;">Hello world</div>
+ <div style="color: green; text-align: center; font-weight: bold;">Hello world</div>
+
+ <style>
+ 	.apple {
+ 		color: yellow; 
+ 		text-align: center; 
+ 		font-weight: bold;
+ 	}
+ 	#orange {
+ 		color: yellow; 
+ 		text-align: center; 
+ 		font-weight: bold;
+ 	}
+ 	div {
+ 		font-style: italic;
+ 	}
+ </style>
+ <div id="orange">Hello world по ID</div>
+ <div class="apple">Hello world</div>
+ <div class="apple">Hello world</div>
+ <div class="apple">Hello world</div>
+ <div class="apple">Hello world</div>
+ <div class="apple">Hello world</div>
+ <div class="apple">Hello world</div>
+
+ <!-- Стили отдельным файлом -->
+ <div class="plum">Hello from css file</div>
+ <link rel="stylesheet" href="style.css">
+
+ <!-- Приоритетность -->
+ <div class="carrot" style="color: orange;">Как работает приоритетность ?</div>
+
+ <style>
+ 	.carrot {
+ 		color: yellow;
+ 	}
+ </style>
+ <link rel="stylesheet" href="carrot.css">
+</body>
+</html>
