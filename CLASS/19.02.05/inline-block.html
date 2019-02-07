@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inline-block'ные элементы</title>
+</head>
+<body>
+
+<div class="apple">Яблоки</div>
+<div class="orange">Апельсины</div>
+<style>
+	.apple, .orange {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+	}
+	.apple {
+		background: green;
+	}
+	.orange {
+		background: orange;
+	}
+	/*
+	display - служит для преобразования элемента(отображение).
+
+	3 базовых значения для свойства display.
+	
+	1) block - у блочных элементов 2 ширины. Фактическая и видимая.
+	Фактическая всегда 100%. Видимой можно управлять. Но из-за того, что фактическая 100% блоки позиционируются друг под другом.
+
+	2) inline - у строчных(инлайновые) элементов фактическая ширина равняется видимой и ей управлять НЕЛЬЗЯ. Габарины элемента всегда зависят от содержимого.
+
+	3) inline-block
+	Совмещает в себе лучшее от BLOKC'a и INLINE'a. Ему можно задавать габариты(ширина, высота) и у них фактическая ширина равняется видимой.
+ 
+	~4) none - скрывает элемент
+	*/
+	.bmw, .mersedes, .audi, .porsche {
+		width: 30%;
+		height: 100px;
+		display: inline-block;
+		border: 10px solid purple;
+	}
+	.bmw {
+		background: red;
+	}
+	.mersedes {
+		background: purple;
+	}
+	.audi {
+		background: blue;
+	}
+	.porsche {
+		background: brown;
+		display: block;
+		width: 100%;
+	}
+</style>
+
+<div class="bmw"></div>
+<div class="mersedes"></div>
+<div class="audi"></div>
+<div class="porsche"></div>
+
+</body>
+</html>

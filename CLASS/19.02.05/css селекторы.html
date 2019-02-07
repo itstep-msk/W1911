@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS Селекторы</title>
+</head>
+<body>
+
+<div class="pyaterochka">
+	<div class="fruits">
+		<div class="apple big">Яблоки из пятёрочки</div>
+		<div class="orange">Апельсины из пятёрочки</div>
+		<div class="banana">Бананы из пятёрочки</div>
+	</div>
+</div>
+
+<div class="magnit">
+	<div class="fruits">
+		<div class="apple small">Яблоки из магнита</div>
+	</div>
+</div>
+
+<style>
+	.apple {
+		font-family: Arial;
+	}
+
+	.pyaterochka .apple {
+		color: green;
+	}
+
+	.magnit .apple {
+		color: red;
+	}
+
+	.apple.big {
+		font-size: 30px;
+	}
+
+	.apple.small {
+		font-size: 10px;
+	}
+
+	.pyaterochka .apple, .orange, .banana {
+		letter-spacing: 20px;
+	}
+	/*
+	1) Элемент внутри элемента
+	.a .b {} // раздельно
+
+	2) Элемент, в котором несколько классов
+	.a.b {} // слитно
+
+	3) Перечисление
+	.a, .b, .c
+	*/
+</style>
+
+<style>
+	.milky-way .solar-system .earth.human {
+		color: red;
+	}
+
+	.rose .item li li .shop.meat {
+		color: purple;
+	}
+</style>
+
+<div class="rose">
+	<div class="item">
+		<ul>	
+			<li>
+				<ul>	
+					<li>
+						<div class="shop meat">Роза</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="milky-way">
+	<div class="solar-system">
+		<div class="earth">Earth without human</div>
+	</div>
+</div>
+
+<div class="milky-way">
+	<div class="solar-system">
+		<div class="earth human">Earth with human</div>
+	</div>
+</div>
+
+<!-- Еще одна самостоятельная -->
+<!-- Применить цвет только к weapon'y, который в build'e -->
+<div class="build">
+	<div class="weapon">KNIFE</div>
+</div>
+
+<div class="weapon">KNIFE</div>
+<!-- 1) Окрасить танки. В России - зеленые, в США - желтые -->
+<!-- 2) Межбуквенный интервал 10px для танкой с классом "large" из России -->
+<!-- 3) Межбуквенный интервал 20px для танкой с классом "large" из США --> -->
+<div class="Russia">
+	<div class="military">
+		<div class="panzer large">T-34</div>
+	</div>
+</div>
+
+<div class="USA">
+	<div class="military">
+		<div class="panzer large">M1 Abrams</div>
+	</div>
+</div>
+
+<style>
+	
+</style>
+
+</body>
+</html>
