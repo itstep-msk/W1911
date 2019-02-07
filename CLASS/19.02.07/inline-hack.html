@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inline-block hack</title>
+</head>
+<body>
+
+<style>
+	.apple, .orange, .banana, .melon, .watermelon, .apricot, .cherry, .strawberry, .plum {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.apple {
+		background: green;
+	}
+	.orange {
+		background: orange;
+		margin-left: -4px;
+	}
+	.banana {
+		background: yellow;
+		margin-left: -4px;
+	}
+	.melon {
+		background: #fdbcb4;
+		font-size: 16px;
+	}
+	.watermelon {
+		background: red;
+		font-size: 16px;
+	}
+	.apricot {
+		background: #fbceb1;
+		font-size: 16px;
+	}
+	.cherry {
+		background: #de3163;
+	}
+	.strawberry {
+		background: #e4d96f
+	}
+	.plum {
+		background: #8E4585;
+	}
+	.cart {
+		font-size: 0;
+	}
+</style>
+
+<div class="apple"></div>
+<div class="orange"></div>
+<div class="banana"></div>
+<br>
+
+<div class="cart">
+	<div class="melon">Дыня</div>
+	<div class="watermelon">Арбуз</div>
+	<div class="apricot">Абрикос</div>
+</div>
+
+<div class="cherry"></div><div class="strawberry"></div><div class="plum"></div>
+
+</body>
+</html>

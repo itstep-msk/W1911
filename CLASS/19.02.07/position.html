@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Position</title>
+</head>
+<body>
+
+<div class="tree"></div>
+<div class="helmet"></div>
+
+<style>
+	.helmet {
+		width: 150px;
+		height: 150px;
+		background: grey;
+		position: absolute;
+	}
+	.tree {
+		width: 100px;
+		height: 100px;
+		background: brown;
+		position: absolute;
+		left: 0px;
+		right: 20px;
+		z-index: 2;
+	}
+	/*
+	Свойство position служит для позиционирования элемента на странице
+	когда его указывают "включаются" так же дополнительные свойства для
+	задания координат: left, right, top, bottom;
+
+	Без position эти свойства координат не доступны.
+
+	Значения position'a: absolute, relative, fixed;
+	*/
+</style>
+
+</body>
+</html>
