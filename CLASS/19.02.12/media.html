@@ -1,0 +1,56 @@
+Z<!DOCTYPE html>
+<html>
+<head>
+	<title>Media CSS</title>
+	<meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+<div class="red"></div>
+<div class="orange"></div>
+<div class="blue"></div>
+
+<style>
+	.red, .orange, .blue {
+		width: 300px;
+		height: 100px;
+		display: inline-block;
+	}
+	.red {
+		background: red;
+	}
+	.orange {
+		background: orange;
+	}
+	.blue {
+		background: blue;
+	}
+
+	@media (max-width: 1200px) {
+		/*
+		1) width - только на этом разрешении
+		2) max-width - от 0 до указанной величины
+		3) min-width - от указанной величины до бесконечности
+		*/
+		.red, .orange, .blue {
+			border: 10px solid green;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.red, .orange, .blue {
+			background: linear-gradient(yellow, orange);
+			width: 100px;
+		}
+	}
+	@media (max-width: 500px) {
+		.red, .orange, .blue {
+			display: block;
+			width: 100%;
+			background: linear-gradient(orange, yellow);
+		}
+	}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pseudo: after before</title>
+</head>
+<body>
+
+<!-- Первое назначение after и before -->
+
+<div class="rocket">Hello world</div>
+
+<h2 class="rocket">Новости</h2>
+
+<style>
+	.rocket:before {
+		content: "<<<---";
+	}
+	.rocket:after {
+		content: "--->>>";
+	}
+</style>
+
+<!-- Второе назначение after и before -->
+
+<div class="pig">
+	<div class="apple"></div>
+</div>
+<br>
+<div class="rabbit"></div>
+
+<style>
+	.pig {
+		width: 100px;
+		height: 100px;
+		background: #f2d9c5;
+	}
+	.apple {
+		width: 50px;
+		height: 50px;
+		background: green;
+	}
+
+	.rabbit {
+		width: 100px;
+		height: 100px;
+		background: #f2d9c5;
+	}
+
+	.rabbit:after {
+		content: "";
+		display: block;
+		width: 50px;
+		height: 50px;
+		background: green;
+	}
+	.rabbit:before {
+		content: "";
+		display: block;
+		width: 50px;
+		height: 50px;
+		background: purple;
+	}
+</style>
+
+</body>
+</html>

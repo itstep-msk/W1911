@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Псевдо обращения</title>
+</head>
+<body>
+
+<div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+</div>
+
+
+<style>
+	.apple {
+		background: green;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		transition: all, .25s;
+	}
+	.apple:first-child {
+		background: yellow;
+	}
+	.apple:last-child {
+		background: orange;
+	}
+	.apple:nth-child(3) {
+		background: purple;
+	}
+	/*
+	odd - нечетные
+	even - четные
+	*/
+	.apple:nth-child(even) {
+		background: red;
+	}
+	.apple:hover {
+		border: 10px solid black;
+		box-sizing: border-box;
+		background: lime;
+		margin-left: 10px;
+		border-radius: 20px;
+	}
+</style>
+
+<input class="philips">
+<input class="samsung">
+
+<style>
+	.philips:focus, .samsung:focus {
+		background: green;
+	}
+</style>
+</body>
+</html>
