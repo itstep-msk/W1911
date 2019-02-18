@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transform</title>
+</head>
+<body>
+
+<div class="apple"></div>
+<div class="orange"></div>
+<div class="banana"></div>
+<div class="plum"></div>
+<div class="potato"></div>
+
+<style>
+	.apple, .orange, .banana, .plum, .potato {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		transition: all, .25s;
+	}
+	.apple {
+		background: green;
+	}
+	.apple:hover {
+		transform: rotateZ(360deg);
+	}
+	.orange {
+		background: orange;
+	}
+	.orange:hover {
+		transform: scale(2);
+	}
+	.banana {
+		background: yellow;
+	}
+	.banana:hover {
+		transform: skewX(50deg)
+	}
+	.plum {
+		background: purple;
+	}
+	.plum:hover {
+		transform: translate(50px, 50px);
+	}
+	.potato {
+		background: brown;
+	}
+	.potato:hover {
+		transform: rotateZ(360deg) scale(2) skewX(50deg) translate(50px,50px);
+	}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Keyframes</title>
+</head>
+<body>
+
+<div class="city"></div>
+
+<style>
+	.city {
+		width: 200px;
+		height: 100px;
+		background: url(https://krutim-all.ru/images/easyblog_articles/784/lklklk.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+		animation: moveCity 1s infinite linear;
+	}
+	/* @keyframes НазваниеАнимации { Кадры  0% {} 100% {} */
+	@keyframes moveCity {
+		0% {
+			margin-left: 0px;
+			transform: rotateZ(-25deg) scale(1);
+		}
+
+		50% {
+			margin-left: 100px;
+			transform: rotateZ(25deg) scale(1.5);
+		}
+
+		100% {
+			margin-left: 0px;
+			transform: rotateZ(-25deg) scale(1);
+		}
+	}
+</style>
+
+</body>
+</html>

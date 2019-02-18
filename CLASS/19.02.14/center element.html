@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Center element</title>
+</head>
+<body>
+
+<!-- 1) Для блочных элементов -->
+<div class="orange"></div>
+
+<style>
+	.orange {
+		width: 100px;
+		height: 100px;
+		background: orange;
+		margin: 0 auto; /* верх-низ лево-право */
+	}
+</style>
+
+<!-- 2) Для строчных (inline-block'чных) элементов -->
+
+<div class="fruits">
+	<div class="banana"></div>
+</div>
+
+<style>
+	.fruits {
+		text-align: center;
+	}
+	.banana {
+		width: 100px;
+		height: 100px;
+		background: yellow;
+		display: inline-block;
+	}
+</style>
+
+<!-- 3) Для "абсолютных" элеменов -->
+
+<div class="home">
+	<div class="tv"></div>
+</div>
+
+<style>
+	.home {
+		position: relative;
+		height: 100px;
+	}
+	.tv {
+		width: 100px;
+		height: 100px;
+		background: black;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+</style>
+
+<!-- 4) С помощью трансформации -->
+
+<div class="carrot"></div>
+
+<style>
+	.carrot {
+		width: 100px;
+		height: 100px;
+		background: blue;
+		margin-left: 50%; /* Относительно браузера */
+    	transform: translateX(-50%); /* Относительно элемента */
+	}	
+</style>
+
+</body>
+</html>
