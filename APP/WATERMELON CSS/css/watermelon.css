@@ -1,0 +1,175 @@
+body {
+	margin: 0;
+	font-family: Arial;
+}
+
+.button {
+	display: inline-block;
+	background: green;
+	padding: .625em 1.25em;
+	border: .0625em solid rgba(0,0,0,.1);
+	border-radius: .2em;
+	box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+	text-shadow:  0 -.05em .05em rgba(0,0,0,.5);
+	cursor: pointer;
+	box-sizing: border-box;
+	text-align: center;
+	color: white;
+	position: relative;
+    overflow: hidden;
+}
+
+.button::selection {
+	background: none;
+}
+
+.button:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: linear-gradient(rgba(255,255,255, .2), transparent);
+}
+
+.button:hover:after {
+	background: linear-gradient(rgba(128,128,128, .2), transparent);
+}
+
+.button:active:after {
+	background: linear-gradient(rgba(0,0,0, .2), transparent);
+}
+
+/* МОДИФИКАТОРЫ */
+/* ЦВЕТ */
+.button--success {
+	background: #6d0;
+}
+.button--danger {
+	background: #c00;
+}
+.button--warning {
+	background: #ffc107;
+}
+.button--primary {
+	background: #58d;
+}
+/* РАЗМЕР */
+.button--size-s {
+	font-size: 60%;
+}
+.button--size-m {
+	font-size: 75%;
+}
+.button--size-l {
+	font-size: 90%;
+}
+.button--size-normal {
+	font-size: 100%;
+}
+.button--size-xl {
+	font-size: 125%;
+}
+
+.button--size-large {
+	width: 100%;
+}
+
+/* СЕТКА */
+.col-1 {
+	width: 8.33333333%;
+	float: left;
+}
+.col-2 {
+	width: 16.66666666%;
+	float: left;
+}
+.col-3 {
+	width: 24.99999999%;
+	float: left;
+}
+.col-4 {
+	width: 33.33333333%;
+	float: left;
+}
+.col-5 {
+	width: 41.66666666%;
+	float: left;
+}
+.col-6 {
+	width: 50%;
+	float: left;
+}
+.col-7 {
+	width: 58.33333333%;
+	float: left;
+}
+.col-8 {
+	width: 66.66666666%;
+	float: left;
+}
+.col-9 {
+	width: 75%;
+	float: left;
+}
+.col-10 {
+	width: 83.33333333%;
+	float: left;
+}
+.col-11 {
+	width: 91.66666666%;
+	float: left;
+}
+.col-12 {
+	width: 100%;
+	float: left;
+}
+
+/* INPUT */
+.input {
+	display: block;
+	width: 100%;
+	padding: .375em .75em;
+	font-size: 1em;
+	line-height: 1.7; /* Межстрочный интервал */
+	color: #495057;
+	border: .0625em solid #ced4da;
+	border-radius: .2em;
+	transition: all, .15s;
+	box-sizing: border-box; /* Пересчет велечин */
+	outline: none; /* Внешняя рамка. Только у элементов форм */
+}
+
+.input:focus {
+	border-color: #58d;
+	box-shadow: 0 0 0 .2em rgba(85, 136, 221, .25);
+}
+
+.input--success {
+	border-color: #6d0;
+}
+
+.input--success:focus {
+	border-color: #6d0;
+	box-shadow: 0 0 0 .2em rgba(102, 221, 0, .25);
+}
+
+.input--danger {
+	border-color: #c00;
+}
+
+.input--danger:focus {
+	border-color: #c00;
+	box-shadow: 0 0 0 .2em rgba(204, 0, 0, .25);
+}
+
+.input--warning {
+	border-color: #ffc107;
+}
+
+.input--warning:focus {
+	border-color: #ffc107;
+	box-shadow: 0 0 0 .2em rgba(255, 193, 7, .25);
+}
