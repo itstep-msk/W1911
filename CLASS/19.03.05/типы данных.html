@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Типы данных</title>
+</head>
+<body>
+
+<script>
+	// Числа
+	var n1 = 10;
+	var n2 = 123.567;
+	// Строки
+	var str = "Hello world";
+	// Логические
+	var rocket = true; // true/false
+	// Объекты. Все типы данных являются примитивными кроме объектов
+	var fruits = {};
+	// NULL
+	var apple = null;
+	// UNDEFINED
+	var orange = undefined;
+
+	// Синтаксис объектов
+	// { Ключ: Значение, Ключ: Значение, ... }
+	/*
+	var fruits = {
+		apple: 10,
+		orange: 20,
+		plum: {
+			size: 20,
+			value: 30
+		}
+	}
+	*/
+
+	// Узнать тип данных
+	console.log(typeof n1); // "number"
+	console.log(typeof n2); // number
+	console.log(typeof str); // string
+	console.log(typeof rocket); // boolean
+	console.log(typeof fruits); // object
+	console.log(typeof apple); // object
+	console.log(typeof orange); // undefined
+
+	//console.log(typeof typeof 123) // "string"
+
+	//Специальные числовые значения
+	console.log(1 / 0) // Infinity
+	console.log(1 / -0) // -Infinity
+	console.log("Привет" / 2) // NaN (Not a number)
+	console.log(typeof NaN) // number (Nor a number = number ???)
+	// Пустая переменная
+	var car;
+	console.log(car); // undefined
+
+	// ОБЪЕКТЫ
+
+	var person = {
+		name: "Alex",
+		age: 20,
+		gender: "male",
+		size: {
+			growth: 150,
+			weight: 100
+		}
+	}
+	console.log(person); // {name: "Alex", age: 20, gender: "male", size: {…}}
+
+	console.log(person.name); // "Alex"
+	console.log(person.size.growth); // 150
+
+	// int apple = 10; // Пример из СИ 4 байта
+	// short int apple = 20000 // 2 байта
+	// short int insignet apple  =  // 2 байта 
+	console.log(typeof person.size.growth) // "number"
+	person.size.growth = "Window";
+	console.log(typeof person.size.growth) // "string"
+
+	var calc = {
+		a: 10,
+		b: 20
+	}
+
+	console.log(calc.a + calc.b) // 30
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS START</title>
+</head>
+<body>
+<!-- <img src="test.jpg"> -->
+<!-- <script src="script.js"></script> -->
+
+<!-- ASYNC(Выполняет сразу после загрузки) -->
+<!-- 
+<script src="library.js" async></script> 
+<script src="script.js" async></script>
+-->
+
+<!-- DEFER(Сохраняет порядок выполнения) -->
+<!-- 
+<script src="library.js" defer></script> 
+<script src="script.js" defer></script>
+-->
+<script>
+	//alert("Hello world");
+	// Однострочный комментарий
+	/*
+	Многострочный комментарий
+	*/
+	// Ctrl + Shift + / - sublime многострочный комментарий
+	// Структура кода
+	//alert("Строка")	
+	//alert("Еще одна строка")
+	/*
+	alert("Строка")	alert("Еще одна строка") // будет ошибка
+	alert("Строка"); alert("Еще одна строка") // Инструкции разделены
+	*/
+	// Ситуация когда инструкция на другой строке но будет ошибка
+	//alert("Ошибка будет")
+	//[1,2].forEach(alert);
+	//alert(1
+	//	+
+	//	2+
+	//	3) // 6
+	console.log("Привет из консоли");
+
+	// ПЕРЕМЕННЫЕ
+	// var - оператор для создания переменных
+	var apple = 10;
+	var orange;
+	var melon = "Дыня";
+	// var apple = 10, orange, melon = "Дыня";
+	var water = melon // water = "Дыня"...... var water = melon = "Дыня"
+	orange = 20;
+
+	console.log(apple); // 10
+	console.log(orange); // 20
+	console.log(apple + orange); // 30
+	console.log(melon); // "Дыня"
+	
+	apple = 50;
+	console.log(apple); // 50
+	/*
+	1) var x = y = 0;
+	
+	2) var x = 0, y = 0;
+
+	3) var x = 0;
+	   var y = 0;
+	*/
+
+	// ИМЕНА ПЕРЕМЕННЫХ
+	var MESSAGE = "A";
+	var message = "B";
+	var MeSsAGE = "C";
+	// ^ 3 разные переменные, регистр букв важен.
+	// var 123Test переменная не может начинаться на цифру
+	// var my-fruits не может содержать дефис
+
+	var _apple = "Яблоко";
+	var $orange = "Апельсин";
+	var _ = "А еще можно так";
+	var $ = "И так";
+
+	var appleAndOrange = "Яблоко и апельсин"; // camelCase
+	var apple_and_orange = "Тут еще фрукты"; // under_score
+
+	var COLOR_RED = "#f00";
+	// const COLOR_RED = "#f00";
+</script>
+
+</body>
+</html>

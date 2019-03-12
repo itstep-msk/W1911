@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Логические операторы</title>
+</head>
+<body>
+
+<script>
+	/*
+		|| (ИЛИ) Если одно из условий true то результат true
+		&& (И) True только тогда когда все операнды true
+	*/
+
+	console.log("|| (ИЛИ)");
+	console.log(true || true) // true
+	console.log(false || true) // true
+	console.log(true || false) // true
+	console.log(false || false) // false
+	console.log("|| (ИЛИ)");
+	console.log(true || true || true || true || false) // true
+
+	console.log("&& (И)");
+	console.log(true && true) // true
+	console.log(false && true) // false
+	console.log(true && false) // false
+	console.log(false && false) // false
+	console.log(false && true && true && true && true) // false
+
+	// Условный оператор
+	/*
+	if (Условие) {
+		Инструкции если условие верное
+	}
+	*/
+	var hour = 30;
+
+	if(hour > 5 || hour < 20) {
+		console.log("Hour больше 5 или меньше 20");
+	} else {
+		console.log("Неизвестное значение hour");
+	}
+
+</script>
+
+</body>
+</html>

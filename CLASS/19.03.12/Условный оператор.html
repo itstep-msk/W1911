@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Условный оператор</title>
+</head>
+<body>
+
+<script>
+	// равенство, строгое равенство, тернарный оператор
+	var a = 10;
+	var b = "10";
+
+	/*
+	= - присваивание
+	== - равенство (По значению)
+	=== - строгое равенство (По типу и значению)
+
+	a - тип number, b - тип string
+	*/
+
+	if(a == 10) {
+		console.log("a равно 10")
+	}
+
+	if(a == b) {
+		console.log("a равно b");
+	}
+
+	if(a === b) {
+		console.log("Эта иснтрукция никогда не отработает")
+	} else {
+		console.log("у a и b разный тип данных")
+	}
+	// Состовные условия
+	if(a == 5) {
+		console.log("a = 5");
+	} else if((a == 8) || (a == 10)) {
+		console.log("a = 8 или a == 10");
+	} else {
+		console.log("Без понятия чему этот А равняется")
+	}
+
+	// switch case
+	switch(a) {
+		case 5:
+			console.log("a = 5");
+			break;
+		case 8:
+		case 10:
+			console.log("a = 8 или a == 10");
+			break;
+		default:
+			console.log("Без понятия чему этот А равняется");
+			break;
+
+	}
+
+</script>
+
+</body>
+</html>

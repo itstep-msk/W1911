@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Основны операторы</title>
+</head>
+<body>
+
+<script>
+	/*
+		5 + 5 // "+" - оператор, Цифра - операнд
+		
+		-5 
+		+5
+
+		Операторы бывают унарные, бинарные и...тернарные
+		бинарный - два операнда (5+2)
+		унарный - один операнд(-4)
+	*/
+	// Оператор +
+	var a = 5;
+	var b = 10;
+	var c;
+
+	console.log(c); // undefined - не присвоено
+
+	c = a + b;
+
+	console.log(c) // 15
+
+	// Оператор -
+	var d = 20;
+	console.log(-d); // -20
+	console.log(d); // 20
+
+	d = -d; // d = -20
+
+	console.log(d); // -20
+
+	d = -d;
+
+	console.log(d); // 20
+
+	// Строки
+
+	var tea = "Индийский";
+	var coffe = "Мексиканский";
+
+	console.log(tea + coffe); // ИндийскийМексиканский
+	console.log(tea + " " + coffe); // ИндийскийМексиканский
+	// строка + строка + строка = огромная строка
+
+	console.log("1" + "2") // "12"
+	console.log(1 + "2") // "12"
+	console.log("1" + 2) // "12"
+	console.log(1 + 2) // 3
+
+	// Если один из операндов строка то все выражение будет строкой.
+	console.log("4" - "2") // 2
+	console.log("Привет" / 2); // NaN
+	// banan
+	console.log("ba" + "hello" / 2) // baNaN
+
+	// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+	// Изменение шага
+
+	var f = 30;
+	f = f + 1; // 31
+	f += 1;
+	// f++
+
+	// Инкрементация
+	var g = 40;
+	g++;
+	console.log(g) // 41
+	// Декрементация
+	var h = 50;
+	h--;
+	console.log(h) // 49
+</script>
+</body>
+</html>

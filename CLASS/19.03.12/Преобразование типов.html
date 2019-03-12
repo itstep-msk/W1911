@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Преобразование типов</title>
+</head>
+<body>
+
+<script>
+	/*
+	String(); // Для преобразования в строку
+	Number(); // Для преобразования в число
+	Boolean(); // Для преобразования в логический тип
+	*/
+	// В СТРОКУ
+	var car = 10;
+
+	car = String(car); // car = "10";
+	console.log(typeof car) // "string";
+
+	// В ЧИСЛО
+	var mars = "20";
+	mars = Number(mars);
+	console.log(typeof mars) // "number";
+
+	// Калькулятор
+	var a = "5";
+	var b = "10";
+
+	console.log(a + b); // "510"
+	console.log(Number(a) + Number(b)); //15 // функция преобразует и возвращает значение.
+	console.log(+a + +b) // 15
+
+	// В ЛОГИЧЕСКИЙ
+	var plum = "";
+	var tea = "Английский";
+	var fuel = 0;
+	var milk = 20;
+
+	console.log("plum: " + Boolean(plum));
+	console.log("tea: " + Boolean(tea));
+	console.log("fuel: " + Boolean(fuel));
+	console.log("milk: " + Boolean(milk));
+
+	console.log(Number("100px")) // NaN
+	console.log(parseInt("100px")) // 100
+	console.log(parseFloat("100.123px")) // 100.123
+	/*
+	Number - преобразует целиком. Если есть хоть один символ не являющийся числом - будет NaN
+
+	parseInt - "мякгое" преобразование. Преобразует посимвольно. Как только встретир символ не являющийся числом то остановится и вернет результат.
+	*/
+</script>
+
+</body>
+</html>
