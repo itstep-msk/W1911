@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Функции</title>
+</head>
+<body>
+
+<script>
+	/*
+	function НазваниеФункции(Аргументы) { Тело функции }
+	*/
+
+	/*
+	console.log("----------");
+	console.log("Привет мир");
+	console.log("----------");
+	*/
+	function greeting(name) {		
+		if(name == undefined) {
+			console.log("Введте имя");
+		} else {
+			console.log("Привет " + name);
+		}
+	}
+
+	greeting("Алексей");
+	greeting("Сергей");
+	greeting();
+
+	function calc(a, b) {
+		var result = a + b;
+
+		return result; // return останавливает функцию и возвращает результат
+	}
+
+	var c = calc(5,10);
+
+	console.log(c) // 15
+
+	/*
+	function checkAgeAndShowMovie(age) {
+		if(age < 18) {
+			console.log("Вам меньше 18")
+		} else {
+			console.log("Функция запуска фильма")
+		}
+	}
+
+	checkAgeAndShowMovie(20)
+	*/
+
+	function checkAge(ageCheck) {
+		if(ageCheck < 18) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function showMovie(ageMovie) {
+		if(checkAge(ageMovie)) {
+			console.log("Функция запуска фильма")
+		} else {
+			console.log("Вам меньше 18")
+		}
+	}
+
+	showMovie(20);
+
+	///////////////////////////////////////
+	function sqrt(a, b, c) {
+		return b*b-4*a*c;
+	}
+
+	console.log(sqrt(1, 3, -4));
+	//////////////////////////////////////
+	function comp(a, b) {
+		if(a > b) {
+			console.log("А больше Б")
+		}
+		if(a < b) {
+			console.log("А меньше Б")
+		}
+		if(a == b) {
+			console.log("А равно Б")
+		}
+	}
+
+	comp(10, 5)
+	comp(5, 10)
+	comp(20,20)
+
+	
+
+
+</script>
+
+</body>
+</html>

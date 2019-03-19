@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Циклы(for, while)</title>
+</head>
+<body>
+
+<script>
+	/*
+	console.log("hello")
+	console.log("hello")
+	console.log("hello")
+	console.log("hello")
+	console.log("hello")
+
+	for(var i = 0; i<5 ; i++) {
+  		console.log("hello из цикла")
+	}
+	*/
+	/*
+	for() {} - конечный цикл
+	while() {} - бесконечный цикл
+
+	for(СозданиеСчетчика; Условие ; Шаг) {
+		Тело цикла
+	}
+	1) СозданиеСчетчика
+	2) Условие
+	3) Тело цикла
+	4) Шаг
+	5) Переход на условие и далее по схеме
+	*/
+
+	/*for(var i = 0; i<5 ; i++) {
+  		console.log(i)
+	}
+	console.log(i);
+*/
+	/*
+	var a = 1
+	while(a<10) {
+		console.log("Этот цикл никогда не остановится")
+	}
+	*/
+/*
+	for(var i = 0; i < 10; i++) {
+		console.log("i: " + i);
+
+		if(i == 5) {
+			break;
+		}
+
+	}
+*/
+	for(var i = 0; i < 10; i++) {
+		if(i != 5) {
+			continue;
+		}
+
+		console.log("i: " + i);
+
+	}
+	// break - останавливает цикл
+	// continue - пропускает итерацию
+	// i == 10  , i != 10
+	// !(оператор НЕ) - инверсия
+	/*
+	var apple = prompt("Напишите Яблоки");
+
+	while(apple != "Яблоки") {
+		alert("Написано неверно");
+		apple = prompt("Напишите Яблоки");
+	}
+*/
+	var result = "";
+
+	for(var i = 0; i < 10; i++) {
+		if(i % 2 == 0) {
+			result = result + "#";
+		} else {
+			result = result + "&";
+		}
+		console.log(result);
+	}
+
+</script>
+
+</body>
+</html>
