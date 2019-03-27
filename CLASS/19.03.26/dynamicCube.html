@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dynamic cube</title>
+</head>
+<body>
+
+<style>
+	.cube {
+		border: 1px solid black;
+		/*
+		border-width: 1px;
+		border-style: solid;
+		border-color: black;
+		*/
+		width: 0px;
+		transition: all, .25s;
+	}
+</style>
+
+<input type="range" class="width">
+<input type="range" class="height">
+<div class="cube"></div>
+
+<script>
+	var width = document.querySelector(".width");
+	var height = document.querySelector(".height");
+	var cube = document.querySelector(".cube");
+
+	width.oninput = function() {
+		// this - текущий элемент
+		// свойство value - значение элемента
+		console.log(this.value)
+		cube.style.width = this.value + "px";
+	}
+
+	height.oninput = function() {
+		// cube.style.height = "80" + "px"
+		cube.style.height = this.value + "px";
+	}
+	// Задача: выбираем случайный цвет и применяем его к элементу
+	var colors = ["orange", "yellow", "green", "purple", "blue"];
+
+	cube.onmousemove = function() {
+		var random = Math.floor(Math.random()*5);
+		//console.log(colors[random]);
+		this.style.background = colors[random]
+		this.innerHTML = colors[random];
+	}
+
+
+</script>
+
+</body>
+</html>

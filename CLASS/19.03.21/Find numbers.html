@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find numbers</title>
+</head>
+<body>
+
+<script>
+	var numbers = ["Alex", true, [1,2,3], {}, 4, "Hola", 5, 1.23];
+
+	function findNumbers(n) {
+		var result = [];
+
+		for(var i = 0; i < n.length; i++) {
+			// Проверяем на тип данных. Если число до добавляем в массив
+			if(typeof n[i] == "number") {
+				result.push(n[i]);
+			}
+		}
+
+		return result;
+	}
+
+	numbers = findNumbers(numbers);
+
+	console.log(numbers); // [4, 5, 1.23]
+
+	// Новый способ(callback функции, стрелочные функции, метод filter)
+
+	var numbers = ["Alex", true, [1,2,3], {}, 4, "Hola", 5, 1.23];
+
+	numbers = numbers.filter(i => typeof i == "number");
+	console.log(numbers) // [4, 5, 1.23]
+</script>
+
+</body>
+</html>

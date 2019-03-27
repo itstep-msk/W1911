@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Concat data</title>
+</head>
+<body>
+
+<script>
+	var names = ["Абрам", "Илья", "Матвей", "Эльдар", "Фёдор"];
+	var ages = [20,23,35,24,21];
+
+	function concat(n, a) {
+		// Если длинна массивов совпадает то ок
+		if(n.length == a.length) {
+			// Объект, который будет собирать значения
+			var list = {};
+
+			for(var i = 0; i < n.length; i++) {
+				list[n[i]] = a[i];
+				// list["Абрам"] = 20
+			}
+
+			return list;
+		} else {
+			console.log("Некорректные данные")
+		}
+	}
+
+	var data = concat(names, ages);
+
+	console.log(data); // { "Абрам": 20, ... }
+</script>
+
+</body>
+</html>

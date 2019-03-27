@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Практика</title>
+</head>
+<body>
+
+<!-- 
+1) Создайте массив с числами через цикл. От 0 до 1000
+
+2) Посчитатйте сумму все чисел массива через цикл
+Результата = 500500
+ -->
+
+<script>
+	// 1st
+	var numbers = [];
+
+	for(var i = 0; i <= 1000;i++) {
+		numbers.push(i);
+	}
+
+	console.log(numbers);
+	// 2nd
+	var total = 0;
+
+	for(var i = 0; i < numbers.length;i++) {
+		total = total + numbers[i]
+	}
+	console.log(total) // 500500
+</script>
+
+</body>
+</html>

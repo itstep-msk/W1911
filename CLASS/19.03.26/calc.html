@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Калькулятор</title>
+</head>
+<body>
+	<input type="number" class="a">
+	<input type="number" class="b">
+	<input type="submit" class="button" value="CALC">
+
+<script>
+	var a = document.querySelector(".a");
+	var b = document.querySelector(".b");
+	var button = document.querySelector(".button");
+
+	button.onclick = function() {
+		// свойство value хранит значение ввиде строки
+		var result = Number(a.value) + Number(b.value);
+
+		console.log("Результат: " + result);
+	}
+</script>
+</body>
+</html>

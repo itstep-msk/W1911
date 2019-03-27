@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for in (перебор объектов)</title>
+</head>
+<body>
+	
+<script>
+	var animals = {
+		dogs: 10,
+		cats: 20,
+		birds: 30,
+		horses: 40,
+		fish: function() {
+			console.log("Рыба поплыла");
+		},
+		zebra: {
+			a: 10,
+			b: 20
+		}
+	}
+	// animals.dogs // 10
+	// animals["dogs"] // 10
+	// animals.fish() - вызов
+	// animals.fish - тело функции
+	// animals["fish"]() - вызов
+	// animals["fish"] - тело функции
+
+	for(animalsName in animals) {
+		console.log(animalsName); // "dogs"
+		console.log(typeof animals[animalsName]);
+		if(typeof animals[animalsName] == "function") {
+			animals[animalsName]()
+		} else {
+			console.log(animals[animalsName]);
+		}
+	}
+</script>
+
+</body>
+</html>

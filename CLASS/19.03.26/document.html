@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.fruit {
+			display: inline-block;
+			padding: 10px;
+			background: orange;
+			color: white;
+		}
+	</style>
+
+	<div class="apple">Яблоко</div>
+	<input class="phone" value="+7-495-777-66-55">
+
+	<script>
+		console.log(document)
+		// 1) Сначало надо найти элемент внутри документа
+		// querySelector - поиск элемента
+		var appleElement = document.querySelector(".apple");
+		var phone = document.querySelector(".phone");
+		
+		console.log(appleElement)
+		// Запросить содержимое элемента
+		console.log(appleElement.innerHTML) // Яблоко
+		appleElement.innerHTML = "Апельсин";
+		appleElement.style.fontSize = "30px";
+		// Через объект style только устанавливается значение
+		//appleElement.style.background = "green";
+
+		// Добавление классов
+		console.log(appleElement.classList); // DOMTokenList ["apple", value: "apple"]
+		// appleElement.classList.add("") добавляет
+		// appleElement.classList.remove("") удаляет
+		// appleElement.classList.toggle("") удаляет если есть, добавляет если нет
+		appleElement.classList.add("fruit")
+		console.log(appleElement.classList);
+		// DOMTokenList(2) ["apple", "fruit", value: "apple fruit"]
+		appleElement.classList.remove("fruit");
+		console.log(appleElement.classList.contains("apple")) // true
+		// .contains("apple") проверяет наличие класса. Возвращает логическое значение true/false
+
+		// Работа с элементами формы
+		console.log(phone);
+
+		// Обычные html элементы - свойство innerHTML
+		// Элементы формы - свойство value
+
+		console.log(phone.value); // запрашиваем значение
+
+		phone.value = "911"; // меняем значение
+	</script>
+</body>
+</html>

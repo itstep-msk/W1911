@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event(события)</title>
+</head>
+<body>
+
+<input type="submit" value="Нажми" class="button">
+<!-- Старый вариант, функция в атрибуте -->
+<!-- <input type="submit" value="Нажми" onclick="greeting()"> -->
+<script>
+	var button = document.querySelector(".button");
+	// чуть новее вариант, функция в свойстве но без круглых скобок
+	button.onclick = click
+	/*
+	button.onclick = function() {
+		console.log("Кликнули по кнопке")
+	}
+	*/
+	// водим по элементу
+	button.onmousemove = function() {
+		console.log("Наведи на элемент")
+		this.style.background = "green";
+	}
+	// покинули элемент
+	button.onmouseout = function() {
+		console.log("Убрали с элемента")
+		this.style.background = "grey";
+	}
+
+	function click() {
+		console.log("Кликнули на элемент")
+		console.log(this)
+		// this - указывает на текущий элемент
+		this.value = "Кликнули";
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Массивы</title>
+</head>
+<body>
+
+<script>
+	var fruitsArr = ["apple", "orange", "plum"];
+	//console.log(fruitsArr[0]) // "apple";
+
+	for(var i = 0; i < 3; i++) {
+		console.log(fruitsArr[i]);
+	}
+	// Аналогия с объектом
+	var fruitsObj = {
+		0: "apple",
+		1: "orange",
+		2: "plum"
+	}
+	//console.log(fruitsObj);
+	var animalObj = {
+		name: "Alex",
+		type: "dog",
+		age: 65,
+		weight: 30
+	}
+	// Цикл для объекта
+	for(prop in animalObj) {
+		console.log(prop) // "name", "type", "age", "weight"
+		console.log(animalObj[prop]) // "Alex", "dog", 65, 30
+	}
+
+	var animalArr = ["Alex", "dog", 65, 30];
+
+	for(var i = 0; i < animalArr.length; i++) {
+		console.log(animalArr[i])
+		/*
+		console.log(animalArr[0])
+		console.log(animalArr[1])
+		console.log(animalArr[2])
+		console.log(animalArr[3])
+		*/
+	}
+	// Двухмерный массив
+	var cars = ["bmw", "mersedes", ["volvo", "daewoo"]];
+	// cars[0] // "bmw"
+	// cars[1] // "mersedes"
+	// cars[2] // ["volvo", "daewoo"]
+	// cars[2][0] // "volvo"
+	// cars[0] = "lada"
+	// cars[cars.length] = "gaz"
+	//cars[cars.length] = "lada";
+	//console.log(cars)
+	//console.log(cars[2][0]) // "volvo"
+	// 1st
+	var names = ["Alex", "Maria", "Philip", "Bob", "Gregory"];
+	var randomNum = Math.floor(Math.random() * names.length);
+
+	console.log(names[randomNum]);
+	// 2nd
+	function getRandomName(nameLists) {
+		var randomNum = Math.floor(Math.random() * names.length);
+		return nameLists[randomNum]
+	}
+
+	console.log(getRandomName(names))
+	// Метод PUSH(Добавление в конец массива)
+	var zoo = ["tiger", "bear"];
+
+	zoo.push("bird");
+
+	console.log(zoo)
+
+	zoo.pop(); // Удаляет последнее значение
+	console.log(zoo)
+
+	zoo.shift() // Удаляет первое значение
+	console.log(zoo)
+
+	zoo.unshift("monkey"); // Добавляет в начало массива
+	console.log(zoo);
+	// Разбивает строку на массив
+	var str = "Hello, my car is white";
+	var splitResult;
+
+	splitResult = str.split(","); // ["Hello", " my car is white"];
+	console.log(splitResult)
+
+	splitResult = str.split(""); // ["H", "e", "l", "l", "o", ",", " ", "m", "y", " ", "c", "a", "r", " ", "i", "s", " ", "w", "h", "i", "t", "e"]
+	splitResult = splitResult.join("#");
+	console.log(splitResult) // H#e#l#l#o#,# #m#y# #c#a#r# #i#s# #w#h#i#t#e
+
+	//splitResult = str.split(" "); // ["Hello,", "my", "car", "is", "white"]
+	//console.log(splitResult)
+
+	// split() - разбить строку на массив через разделитель
+	// join() - создать из массива строку через разделитель
+</script>
+
+</body>
+</html>

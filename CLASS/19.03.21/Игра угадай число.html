@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Игра: угадай число</title>
+</head>
+<body>
+
+<script>
+	var computer;
+	var player;
+
+	// Получаем число от 0 до 10
+	computer = Math.round(Math.random() * 10);
+
+	// Запрашиваем число у игрока
+	player = Number(prompt("Введите число от 0 до 10"));
+
+	if(player == computer) {
+		alert("Вы угадали число");
+	} else {
+		alert("Проиграли");
+	}
+</script>
+
+</body>
+</html>

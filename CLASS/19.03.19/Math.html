@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math</title>
+</head>
+<body>
+
+<script>
+	// Объект Math
+	console.log(typeof Math); // "object"
+	console.log(Math.PI) // 3.141592653589793
+	console.log(Math.random()) // Случайное число от 0 до 1
+	console.log(Math.ceil(1.6)) // 2 // В большую
+	console.log(Math.floor(1.6)) // 1 // В меньшую
+	console.log(Math.round(1.6)) // 2 // В ближайшую
+	console.log(Math.abs(2 - 5)) // 3 // Абсолютное число. Всегда положительное
+	console.log(Math.sign(-5)) // -1 
+	console.log(Math.sign(5)) // 1 
+
+	var tiger = -10;
+	if(Math.sign(tiger) == -1) {
+		console.log("Кол-во тигров отрицательное")
+	} else {
+		console.log("Кол-во тигров положительное")
+	}
+
+	console.log(Math.floor(Math.random()*100)) // Случайное число
+
+	function getRandomNumber(number) {
+		return Math.floor(Math.random()*number);
+	}
+	var randomResult = getRandomNumber(100);
+	if(randomResult < 50) {
+		console.log("МЕНЬШЕ 50 РЕЗУЛЬТАТ: " + randomResult)
+	} else {
+		console.log("БОЛЬШЕ 50 РЕЗУЛЬТАТ: " + randomResult)
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Погружение в свойства и методы</title>
+</head>
+<body>
+
+<script>
+	var apple = "Яблоки";
+
+	console.log(apple.length) // 6
+	console.log(apple.toUpperCase()) // "ЯБЛОКИ"
+	console.log(apple) // "Яблоки"
+	console.log(apple.toLowerCase()) // "яблоки"
+	// DB = apple, user = AppLE
+ 	// HARD LEVEL
+	String.prototype.banan = "Что тут делает банан ?";
+
+	console.log(apple.banan); // Что тут делает банан ?
+	console.log("Hello".banan); // Что тут делает банан ?
+	// Метод
+	String.prototype.elephant = function() {
+		return this;
+	}
+	console.log("Hello".elephant()) // String {"Hello"}
+
+	// Методы числа
+	var number = 123.456;
+	console.log(number.toFixed(10)) // "123.4560000000"
+	console.log(number.toFixed(2)) // "123.46"
+	console.log(parseFloat(number.toFixed(2))) // 123.46
+</script>
+
+</body>
+</html>

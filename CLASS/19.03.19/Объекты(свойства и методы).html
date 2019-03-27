@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Объекты (свойства и методы)</title>
+</head>
+<body>
+	
+<script>
+	var fruits = {
+		apple: 10,
+		orange: 20,
+		getSum: function() {
+			console.log("Сумма: " + (this.apple + this.orange))
+			// this внутри объекта указывает на него же
+			// this = frutis
+		},
+		greeting: function(name) {
+			console.log("Hello " + name)
+		}
+	};
+
+	fruits.plum = 30;
+	fruits.greeting("Alex"); // "Hello Alex"
+	fruits.getSum()
+
+	console.log(fruits)
+	console.log(fruits.apple)
+	console.log(fruits.plum)
+	
+	var coords = {
+		click: {
+			x: 10,
+			y: 20
+		},
+		move: {
+			x: 30,
+			y: 40
+		}
+	}
+	
+	console.log(coords.click.x)
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>querySelectorAll - поиск нескольких элементов</title>
+</head>
+<body>
+
+<style>
+	.apple {
+		width: 50px;
+		height: 50px;
+		background: purple;
+		border-radius: 50%;
+		display: inline-block;
+		transition: all, 1s;
+		opacity: 1;
+	}
+</style>
+
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+<div class="apple"></div>
+
+<script>
+	// querySelector - находит один элемент и возвращает его
+	// querySelectorAll - находит все элементы и возвращает результат ввиде массива элементов
+
+	var apple = document.querySelector(".apple");
+	var apples = document.querySelectorAll(".apple");
+	// один элемент
+	console.log(apple)
+	// много
+	console.log(apples)
+
+	// apples.onclick это свойство отсутствует у массива элементов
+	// свойство есть только у элементво. Пример apples[0].onclick
+	// чтобы с ними работать надо через цикл for перебрать
+
+	for(var i = 0; i < apples.length; i++) {
+		//console.log(apples[i])
+		apples[i].onclick = function() {
+			this.style.background = "red";
+			this.style.borderRadius = "0px";
+			this.style.transform = "scale(0) rotateZ(360deg)";
+
+		}
+	}
+	/*
+	apples[0].onclick = function() {
+		this.style.background = "red";
+	}
+	apples[1].onclick = function() {
+		this.style.background = "red";
+	}
+	apples[2].onclick = function() {
+		this.style.background = "red";
+	}
+	*/
+
+	console.log(apples[0].onclick)
+</script>
+
+</body>
+</html>
