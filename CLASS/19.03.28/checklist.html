@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CheckList (Список дел)</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+	.task {
+		width: 80%;
+	    box-sizing: border-box;
+	    height: 40px;
+	}
+	.button {
+		margin-left: -4px;
+	    width: 20%;
+	    box-sizing: border-box;
+	    height: 40px;
+	    text-transform: uppercase;
+	}
+	.text {
+	    padding: 15px 10px;
+	}
+	.text:nth-child(even) {
+		background: #f0f0f0;
+	}
+	.apple {
+		background: red;
+	}
+</style>
+
+<input class="task">
+<input type="submit" class="button" value="Добавить задачу">
+<div class="list"></div>
+
+<script>
+	var task = document.querySelector(".task");
+	var button = document.querySelector(".button");
+	var list = document.querySelector(".list");
+
+	task.onclick = function() {
+		task.classList.toggle("apple")
+	}
+
+	task.onkeydown = function(event) {
+		// Информация о событие ввиде объекта
+		//console.log(event);
+		// Информация о клавише хранится в свойстве event.key
+		// Кроссбраузерное - event.keyCode
+		if(event.key == "Enter") {
+			addTask();
+		}
+	}
+
+	button.onclick = function(event) {
+		console.log(event)
+		addTask();
+	}
+
+	function addTask() {
+		if(task.value == "") {
+			// Прервать выполнения функции
+			return;
+		}
+
+		// результат = результат старый + новое значение
+		list.innerHTML = list.innerHTML + "<div class='text'>" + task.value + "</div>";
+		task.value = "";
+	}
+
+	/*
+	var obj = {}
+
+	obj.say = function(eventInfo) {
+		console.log(eventInfo)
+	}
+
+	obj.say(ИнформациияОСоботиии);
+	"<" => &lt;
+
+
+	*/
+</script>
+
+</body>
+</html>

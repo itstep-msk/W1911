@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Шифр Цезаря</title>
+</head>
+<body>
+	<input class="text" placeholder="Введите текст...">
+	<input class="result" placeholder="Результат шифрования...">
+	<input class="decryption" placeholder="Результат дешифрования...">
+	<input type="submit" class="button" placeholder="Зашифровать">
+
+	<script>
+		// a => d, h => k
+		var word = "a";
+		// Получить код символа, вызываем у строки
+		console.log(word.charCodeAt()) // 97
+		// Получить букву по коду, вызываем у объкта String
+		console.log(String.fromCharCode(97)) // "a"
+
+		var text = document.querySelector(".text");
+		var result = document.querySelector(".result");
+		var button = document.querySelector(".button");
+
+		button.onclick = function() {
+			// Разбили стрку на массив "Hello" => ["H", "e", "l", "l", "o"];
+			var wordsArray = text.value.split("");
+			var newWords = []; // Массив чисел [72, 101, 108, 108, 111]
+			var resultWords = []; // Массив букв ["M", "j", "q", "q", "t"]
+			var step = 5;
+
+			// Перебираем массив
+			for(var i = 0; i < wordsArray.length; i++) {
+				// Получаем каждую букву массива
+				console.log(wordsArray[i]);
+				// Преобразовываем буквы в цифры и записываем в массив
+				newWords.push(wordsArray[i].charCodeAt());
+				// "H".charCodeAt() => 72
+				// newWords[i] = wordsArray[i].charCodeAt()
+			}
+			console.log(newWords)
+			
+			for(var i = 0; i < newWords.length; i++) {
+				resultWords.push(String.fromCharCode(newWords[i] + step));
+			}
+			// Из массива в строку и записали в значение input'a
+			result.value = resultWords.join("");
+			console.log(resultWords)
+		}
+
+		/*
+		button.onclick = function() {
+			// Получили код символа
+			var symbolCode = text.value.charCodeAt();
+			var step = 5;
+			// Преобразовали и записали в переменную новый символ
+			var symbolNew = String.fromCharCode(symbolCode + step);
+
+			result.value = symbolNew;
+		}
+		*/
+	</script>
+</body>
+</html>
