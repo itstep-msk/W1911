@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Moon library</title>
+</head>
+<body>
+
+<div class="earth">Earth</div>
+
+<script>
+	function moon(element) {
+		console.log(element);
+		return {
+			el: document.querySelector(element), // document.querySelector(".earth")
+			hide: function() {
+				console.log(this) // текущий объект
+				this.el.style.display = "none";
+				return this; // возращаем текущий объект чтобы можно было бесконечно вызывать методы через точку
+			},
+			show: function() {
+				this.el.style.display = "block";
+				return this;
+			}
+		}
+	}
+	console.log(moon(".earth"));
+	console.log(moon(".earth").hide()); // Вызываем метод у возвращаемого объекта
+	// moon(".earth").hide()
+	// moon(".earth").hide().show()
+	// document.querySelector(".apple")
+	// $(".apple")
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM навигация</title>
+</head>
+<body>
+
+<div class="apple">
+	apple
+	<div class="orange">
+		<div class="plum">Слива</div>
+		<div class="watermelon">Арбуз</div>
+	</div>
+</div>
+<div class="melon">Дыня</div>
+
+<script>
+	var apple = document.querySelector(".apple");
+	// Только узлы элементы
+	console.log(apple.children)
+	// Все узлы(пробелы, комментари, элементы)
+	console.log(apple.childNodes)
+	// Соседний элемент
+	console.log(apple.nextElementSibling) // Элемент Дыня
+	console.log(apple.nextElementSibling.innerHTML) // "Дыня"
+	/*
+	nextElementSibling
+	parentElement
+	previousElementSibling
+	firstElementChild
+	lastElementChild
+	children - возвращает массив из элементов
+
+	childElementCount - кол-во дочерних
+	*/
+	// Соседний узел
+	console.log(apple.nextSibling) // какой-то текст, перевод строки
+	console.log(apple.firstElementChild.firstElementChild.nextElementSibling.parentElement.parentElement)
+
+	function find(el) {
+		return {
+			current: document.querySelector(el),
+			next: function() {
+				return this.current.nextElementSibling
+			},
+			prev: function() {
+				return this.current.previousElementSibling
+			}
+		}
+	}
+	console.log(find(".apple").current) // <div class="apple">...</div>
+	console.log(find(".apple").next()) // <div class="melon">Дыня</div>
+	console.log(find(".apple").prev()) // null
+</script>
+
+</body>
+</html>

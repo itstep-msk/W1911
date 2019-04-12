@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Калькулятор, который возвращает результаты</title>
+</head>
+<body>
+
+<script>
+	function calc(a, b) {
+		var odd = [];
+		var even = [];
+		var results = {
+			sum: 0,
+			multiplication: 0,
+			division: 0,
+			subtraction: 0
+		}
+		//console.log(results)
+		// Слева переменная для названия свойств
+		for(key in results) {
+			// Название свойства: "sum", "mul...", "division", "sub..."
+			//console.log(key)
+			// Значение свойства results["sum"] // 0
+			//console.log(results[key])
+			// Получаем results[key], записываем results[key] = 123
+			if(key == "sum") {
+				results[key] = a + b;
+			}
+			if(key == "multiplication") {
+				results[key] = a * b;
+			}
+			if(key == "division") {
+				results[key] = a / b;
+			}
+			if(key == "subtraction") {
+				results[key] = a - b;
+			}
+			// 10 % 2 == 0 - true, 9 % 2 == 0 - false
+			if(results[key] % 2 == 0) {
+				even.push(results[key])
+			} else {
+				odd.push(results[key])
+			}
+		}
+
+		results.odd = odd;
+		results.even = even;
+
+		return results;
+	}
+
+	console.log(calc(10,20).sum)
+	console.log(calc(10,20))
+	console.log(calc(50,30).subtraction)
+	console.log(calc(5,3).division)
+	console.log(calc(7,9).multiplication)
+
+	/*
+	function find(el) {
+		return document.querySelector(el)
+	}
+
+	find(".apple")
+	find(".apple").innerHTML
+	find(".apple").classList.add("orange")
+	*/
+
+	/*
+	Визуализация
+
+	https://tylermcginnis.com/javascript-visualizer/?code=function%20calc%28a%2C%20b%29%20%7B%0A%09%09var%20odd%20%3D%20%5B%5D%3B%0A%09%09var%20even%20%3D%20%5B%5D%3B%0A%09%09var%20results%20%3D%20%7B%0A%09%09%09sum%3A%200%2C%0A%09%09%09multiplication%3A%200%2C%0A%09%09%09division%3A%200%2C%0A%09%09%09subtraction%3A%200%0A%09%09%7D%3B%0A%0A%09%09for%28var%20key%20in%20results%29%20%7B%0A%09%09%09if%28key%20%3D%3D%20%22sum%22%29%20%7B%0A%09%09%09%09results%5Bkey%5D%20%3D%20a%20%2B%20b%3B%0A%09%09%09%7D%0A%09%09%09if%28key%20%3D%3D%20%22multiplication%22%29%20%7B%0A%09%09%09%09results%5Bkey%5D%20%3D%20a%20%2A%20b%3B%0A%09%09%09%7D%0A%09%09%09if%28key%20%3D%3D%20%22division%22%29%20%7B%0A%09%09%09%09results%5Bkey%5D%20%3D%20a%20%2F%20b%3B%0A%09%09%09%7D%0A%09%09%09if%28key%20%3D%3D%20%22subtraction%22%29%20%7B%0A%09%09%09%09results%5Bkey%5D%20%3D%20a%20-%20b%3B%0A%09%09%09%7D%0A%0A%09%09%09%2F%2Aif%28results%5Bkey%5D%20%25%202%20%3D%3D%200%29%20%7B%0A%09%09%09%09even.push%28results%5Bkey%5D%29%3B%0A%09%09%09%7D%20else%20%7B%0A%09%09%09%09odd.push%28results%5Bkey%5D%29%3B%0A%09%09%09%7D%2A%2F%0A%09%09%7D%0A%0A%09%09results.odd%20%3D%20odd%3B%0A%09%09results.even%20%3D%20even%3B%0A%0A%09%09%2F%2Freturn%20results%3B%0A%09%7D%0A%0A%09calc%2810%2C20%29%3B
+	*/
+</script>
+
+</body>
+</html>

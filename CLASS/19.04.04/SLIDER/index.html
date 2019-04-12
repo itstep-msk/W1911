@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slider</title>
+</head>
+<body>
+
+<style>
+	.container {
+		width: 400px;
+		overflow: hidden;
+	}
+	.box {
+		width: 10000px;
+		transition: all, .25s;
+	}
+</style>
+
+<div class="container">
+	<div class="box">
+		<img width="400" height="400" src="img/1.jpg"><img width="400" height="400" src="img/2.jpg"><img width="400" height="400" src="img/3.jpg">
+	</div>
+	<div class="prev">PREV</div>
+	<div class="next">NEXT</div>
+</div>
+
+<script>
+	var prev = document.querySelector(".prev");
+	var next = document.querySelector(".next");
+	var box = document.querySelector(".box");
+	var count = 0;
+
+	next.addEventListener("click", function() {
+		if(count >= 2) {
+			return; // выход из функции если дошли до конца слайдера
+		}
+
+		count++; // Увеличиваем счетчик на еденицу
+		console.log(count);
+		//box.style.marginLeft = "-400px";
+		box.style.marginLeft = (count * (-400)) + "px";
+		// -400 -800 -1200 -1600 и т.д.
+	});
+
+	prev.addEventListener("click", function() {
+		if(count <= 0) {
+			return;
+		}
+
+		count--;
+		box.style.marginLeft = (count * (-400)) + "px";
+	})
+
+	/////
+	console.table();
+	console.dir();
+	console.time();
+	var arr = []
+	for(var i = 0; i < 100000000; i++) {
+		arr.push(i);
+		arr[i];
+	}
+	console.timeEnd()
+</script>
+
+</body>
+</html>

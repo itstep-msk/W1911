@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Методы функций</title>
+</head>
+<body>
+	<script>
+		var Dog = {
+			name: "Sharik",
+			say: function() {
+				// this тут указывает на текущий объект this == Dog
+				console.log(this.name);
+				console.log(this);
+			}
+		}
+
+		var Rabbit = {
+			name: "Banny"
+		}
+
+		Dog.say(); "Sharik"
+		// Создали свойство say и скопировали тело методы у объета Dog
+		Rabbit.say = Dog.say;
+		Rabbit.say(); // "Banny"
+		// Подменили контекст
+		Rabbit.say.call(Dog); // "Sharik"
+
+		////////////////////////////////
+		// Метод CALL у обычных функций
+/*
+		function greeting(name) {
+			console.log("Hello: " + name)
+			console.log(this); // Поумолчанию ссылкается на глобальных объект window
+		}
+
+		greeting("Alex"); // Hello и Window{}
+		greeting.call();//  Hello и Window{}
+		greeting.call(123, "Alex"); //  Hello и 123
+		// Метод call не только вызывает функцию но и пожет подменить "контекст". То есть ключевое слово this может иметь все что угодно.
+		// Если нам нужно передавать в функцию аргументы то в методе call они передаются начиная с 2-ого.
+		// greeting("Аргумент1", "Аргумент2", "Аргумент3", ...)
+		// greeting.call(КонтекстФункции, "Аргумент1", ""Аргумент2", "Аргумент3", ...)
+		*/
+
+		///////////////////////////////////////////
+		var Dino = {
+			name: "Rex",
+			run: function() {
+				console.log(this.name + ": is run");
+			}
+		}
+
+		var Human = {
+			name: "Bob",
+			say: function() {
+				console.log("Hello my name is: " + this.name)
+			}
+		}
+
+		Dino.run(); // Rex: is run
+		Human.say(); // Hello my name is: Bob
+ 		// Подменили контекст this теперь он указаывает на другой объект
+		Dino.run.call(Human); // Bob: is run
+		Human.say.call(Dino); // Hello my name is: Rex
+
+		// APPLY
+		var message = {
+			show: function(start, end, text) {
+				console.log(start + text + end);
+			}
+		}
+		//message.say.call(null, arg1, arg2, arg3)
+		message.show.apply(null, ["<<<", ">>>", "hello world"])
+		message.show("<<<", ">>>", "hello world")
+		// apply отличается от call тем, что принимает массив аргументов. 
+		// Два аргумента КОНТЕКСТ и МАССИВ АРГУМЕНТОВ
+
+		console.log(Math.min(10,20,5,2,100)) // 2
+		console.log(Math.max(10,20,5,2,100)) // 100
+		console.log(Math.min.apply(null, [10,20,5,2,100])) // 2
+		console.log(Math.min.apply(Math, [10,20,5,2,100])) // 2
+
+		///////////////////////////////////
+		// Метод BIND (Связывание данных)
+
+		Dino.run.bind(Human)(); // Bob: is run
+		Human.say.bind(Dino)(); // Hello my name is: Rex
+
+		console.log(Math.min.bind(null,10,20,5,2,100)())
+		// Данные связали а потом вызвали метод ()
+
+		function greeting(name) {
+			console.log("Hello " + name);
+		}
+		greeting("Alex");
+		greeting.call(null, "Alex");
+		greeting.apply(null, ["Alex"]);
+		greeting.bind(null, "Alex")();
+
+		//setInterval(greeting, 1000);
+		//setInterval(greeting.bind(null, "Alex from setInterval"), 1000);
+
+		// button.addEventListener("click", fn() {})
+		// button.addEventListener("click", jump)
+		// button.addEventListener("click", jump.bind(null, "Hola"))
+	</script>
+</body>
+</html>

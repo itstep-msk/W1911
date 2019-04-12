@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Функция: передача по ссылке</title>
+</head>
+<body>
+
+<script>
+	/* Как правило такие не копируют "по ссылке"
+	function greetin() {
+
+	}
+	greetin();
+	*/
+
+	var apple = function() {
+		return "hello from apple"
+	}
+	console.log(apple()); // "hello from apple"
+
+	var banana = apple;
+	console.log(banana); // function() {return "hello from apple"}
+	console.log(banana());
+	var orange = apple();
+	console.log(orange) // "hello from apple";
+
+	/////////////////////////////
+	function greeting() {
+		return "Hello Alex";
+	}
+	// Скопировали тело функции
+	var user = greeting;
+	console.log(user) // function greeting() {return "Hello Alex";}
+	console.log(user()); // "Hello Alex"
+
+	setInterval(function(){
+		console.log("Бесконечный таймер")
+	}, 1000);
+	/*
+	function setInterval(fn, interval) {
+		console.log(fn) // function(){console.log("Бесконечный таймер")}
+		fn();
+	}
+	*/
+	function timerGreeting() {
+		console.log("ТАймер по ссылке")
+	}
+	setInterval(timerGreeting, 1000)
+	/*
+	setInterval(function() {
+		timerGreeting()
+	})
+	*/
+</script>
+
+</body>
+</html>

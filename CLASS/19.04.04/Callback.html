@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback функции(функция обратного вызова)</title>
+</head>
+<body>
+
+<div class="table">Стол</div>
+
+<script>
+	var a = function() {
+		return 10
+	}
+	function b() {
+		return 20
+	}
+	a();
+	b();
+
+	function calc(a, b, apple) {
+		/*
+		apple = function() { console.log("Привет, я callback") })
+		*/
+		var result = a + b;
+
+		if(result > 10) {
+			apple();
+		}
+	}
+
+	calc(10, 20, function() { console.log("Привет, я callback") });
+
+	///////////////////////////////////
+
+	var table = document.querySelector(".table");
+
+	table.onclick = function() {
+		console.log("onclick 1 work")
+	}
+	// Сработаешь только последний, перезаписали свойоство
+	table.onclick = function() {
+		console.log("onclick 2 work")
+	}
+	// Можно добавлять много слушателей
+	table.addEventListener("click", function(event) {
+		// Первый аргумент функции информация о событии
+		console.log(event)
+		console.log("addEventListener 1 work");
+	})
+	table.addEventListener("click", function() {
+		console.log("addEventListener 2 work");
+	})
+	// addEventListener("НазваниеСобытия", функцияCallBack)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabs</title>
+</head>
+<body>
+	<style>
+		.links {
+		    border-bottom: 2px solid #dcdcdc;
+		}
+		.link {
+		    display: inline-block;
+		    background: #dcdcdc;
+		    padding: 10px 20px;
+		    cursor: pointer;
+		    transition: all, .25s;
+		}
+		.link.active {
+			background: yellow;
+		}
+		.text {
+			border: 1px solid #dcdcdc;
+   			padding: 10px 10px;
+   			display: none;
+		}
+	</style>
+	<div class="links">
+		<!-- 
+			data атрибут - это обычный атрибут, который мы сами создали и храним в нем нужную нам информацию
+			префикс data нужен чтобы валидатор html на них не обращал внимания
+		-->
+		<div class="link" data-index="0">Tiger</div>
+		<div class="link" data-index="1">Wolf</div>
+		<div class="link" data-index="2">Elephant</div>
+	</div>
+	<div class="contents">
+		<div class="text">Текст про тигров...</div>
+		<div class="text">Текст про волков...</div>
+		<div class="text">Текст про слонов...</div>
+	</div>
+	<script>
+		var link = document.querySelectorAll(".link");
+		var text = document.querySelectorAll(".text");
+
+		for(var i = 0; i < link.length; i++) {
+			// Перебираем элементы и записываем в их свойство click функцию
+			link[i].onclick = function() {
+				// this внутри события указывает на текущий элемент, на который срабатывает событие
+				console.log(this)
+				// Получаем значение атрибута
+				var index = this.getAttribute("data-index");
+				console.log(index)
+				// Обращаемся к элементу
+				console.log(text[index])
+				hideAllText();
+				text[index].style.display = "block";
+				// Добавляем класс к текущему элементу, на который нажали
+				// Сначало у всех ссылок удаляем класс active
+				clearClassAllLink();
+				// Потом на которую нажали - добавляем
+				this.classList.add("active");
+			}
+			//console.log(link[i]);
+		}
+		// text[1] // получили второй элемент
+
+		function hideAllText() {
+			// Скрывает все элементы
+			for(var i = 0; i < text.length; i++) {
+				text[i].style.display = "none";
+			}
+		}
+
+		function clearClassAllLink() {
+			for(var i = 0; i < link.length; i++) {
+				link[i].classList.remove("active");
+			}
+		}
+	</script>
+</body>
+</html>

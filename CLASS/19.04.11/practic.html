@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Объект с методами и объекты с данными</title>
+</head>
+<body>
+
+<script>
+	var calc = {
+		sum: function() {
+			console.log(this.a + this.b)
+		}
+	}
+
+	var fruits = {
+		a: 10,
+		b: 20
+	}
+
+	var vegetables = {
+		a: 100,
+		b: 500
+	}
+	// Поменяли контекст. был this = calc, стало this = fruits
+	calc.sum.call(fruits); // 30, this.a: 10, this.b: 20
+	calc.sum.call(vegetables); //  600, this.a: 100, this.b: 500
+</script>
+
+</body>
+</html>

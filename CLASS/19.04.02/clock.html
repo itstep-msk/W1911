@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock</title>
+</head>
+<body>
+	<style>
+		.clock {
+			width: 200px;
+			height: 200px;
+			border: 5px solid black;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			border-radius: 50%;
+		}
+		.arrow-hours, .arrow-minutes, .arrow-seconds {
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    margin: auto;
+		    transform-origin: 50% 100%; /* Смещение точки опоры */
+		}
+
+		.arrow-hours {
+			width: 15px;
+		    height: 30%;
+		    top: 20%;
+		    background: #9bff00;
+		}
+
+		.arrow-minutes {
+			width: 10px;
+			height: 40%;
+			top: 10%;
+			background: blue;
+		}
+
+		.arrow-seconds {
+			width: 5px;
+			height: 50%;
+			background: red;
+		}
+		.stub {
+			width: 20px;
+			height: 20px;
+			background: black;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			border-radius: 50%;
+		}
+	</style>
+	<div class="clock">
+		<div class="arrow-hours"></div>
+		<div class="arrow-minutes"></div>
+		<div class="arrow-seconds"></div>
+		<div class="stub"></div>
+	</div>
+	<script>
+		// Процесс создания объекта
+		var hours = document.querySelector(".arrow-hours");
+		var minutes = document.querySelector(".arrow-minutes");
+		var seconds = document.querySelector(".arrow-seconds");
+
+		// setInterval(function() {}, 1000)
+		// var timerId = setInterval(function() {}, 1000)
+		// clearInterval(timerId);
+		setInterval(function() {
+			var date = new Date();
+			// rotateZ(360deg) rotateZ(360 deg)
+			hours.style.transform = "rotateZ(" + 360/12*date.getHours() + "deg)";
+			minutes.style.transform = "rotateZ(" + 360/60*date.getMinutes() + "deg)";
+			seconds.style.transform = "rotateZ(" + 360/60*date.getSeconds() + "deg)";
+			console.log(date.getSeconds())
+		}, 1000)
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>call HTML el</title>
+</head>
+<body>
+	<div class="block">apple</div>
+	<div class="block">orange</div>
+	<div class="block">earth</div>
+	<div class="block">car</div>
+	<div class="block">water</div>
+	<script>
+		var blocks = document.querySelectorAll(".block");
+
+		var space = {
+			getHTML: function() {
+				var result = [];
+				console.log(this)
+				for(var i = 0; i < this.length; i++) {
+					result.push(this[i].innerHTML);
+					console.log(this[i])
+				}
+
+				return result;
+			}
+		}
+
+		console.log(space.getHTML.call(blocks))
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elephant library</title>
+</head>
+<body>
+
+<div class="apple">Apple</div>
+<div class="apple">Apple</div>
+<div class="apple">Apple</div>
+
+<div class="orange">Orange</div>
+
+<script>
+	var elephant = {
+		element: null,
+		elements: null,
+		find: function(el) {
+			// Очищаем свойства чтобы не сохранялись предыдущие результаты
+			this.elements = null;
+			this.element = null;
+			// Находим элемент/элементы и возвращаем ввиде массива
+			var result = document.querySelectorAll(el);
+			// Проверяем длинну массива чтобы понять один найден или много
+			if(result.length > 1) {
+				// Если много то записываем в свойство elements
+				this.elements = result;
+			} else {
+				// Если один то в свойство element
+				this.element = result[0];
+			}
+			// После выполнения метода find возвращаем текущий объект, чтобы можно было вызывать другие методы текущего объекта
+			return this;
+		},
+		addClass: function(className) {
+			// Проверяем свойства. В момент запуска find лишь одно из свойст содержит элемент/элементы
+			if(this.element != null) {
+				// this.element - содержит HTML элемент
+				this.element.classList.add(className);
+				console.log(this.element) // 1 элемент
+			}
+			if(this.elements != null) {
+				// this.elements - содержит коллекцию элементов
+				for(var i = 0; i < this.elements.length; i++) {
+					// this.elements[i] - получаем HTML элемент по индексу
+					this.elements[i].classList.add(className)
+					console.log(this.elements[i]) // 3 элемента
+				}
+			}
+			return this;
+		}
+	}
+
+	console.log(elephant.find(".apple").addClass("red"));
+	console.log(elephant.find(".orange").addClass("yellow"));
+	//console.log(elephant.find(".orange").html()); // orange
+	//console.log(elephant.find(".orange").html("GREEN")); 
+	// <div class="orange">GREEN</div>
+</script>
+
+</body>
+</html>
