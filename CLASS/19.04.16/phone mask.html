@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phone mask</title>
+</head>
+<body>
+
+<input type="text" class="phone">
+
+<script>
+	/*var phone = document.querySelector(".phone");
+
+	phone.addEventListener("input", function() {
+		var text = phone.value;
+		var result = getPhoneWithMask(text);
+		phone.value = result;
+	})*/
+
+	function getPhoneWithMask(numbers) {
+		var numArray = numbers.split("");
+		// numArray - ["8", "9", "1", "5", "7", "7", "7", "6", "6", "5", "5"]
+		var result = "";
+		var numCount = 0;
+		var mask = ["","(","","","",")"," ","","","","-","","","-","",""];
+		for(var i = 0; i < mask.length; i++) {
+			if(mask[i] == "") {
+				mask[i] = numArray[numCount];
+				numCount++;
+				// numCount инкрементируется только тогда когда mask[i] пустой
+			}
+			console.log(mask)
+		}
+		return mask.join("");
+		// ["8", "9", "1", "5", "7", "7", "7", "6", "6", "5", "5"]
+		// ["","(","","","",")"," ","","","","-","","","-","",""]
+	}
+
+	console.log(getPhoneWithMask("89157776655")) // 8(915) 777-66-55
+</script>
+
+</body>
+</html>

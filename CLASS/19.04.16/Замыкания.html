@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Замыкания</title>
+</head>
+<body>
+
+<script>
+	/*
+	var a = 0;
+
+	function fruits() {
+		var banana = 10;
+		return function() {
+			return banana;
+		}
+	}
+
+	var apple = fruits();
+
+	//console.log(apple);
+	console.log(apple()) // 10
+	*/
+
+	function Generator() {
+		var count = 0;
+
+		return function() {
+			count++;
+			return count;
+		}
+	}
+	// в переменную записали тело функции и создали хранилище с переменными функции Generator
+	// Для каждого вызова создается свое хранилище. Оно существует всегда как как создается замыкание из за того, что функция Generator возвращает другую функцию. 
+	// function() {count++;return count;}
+	// Эта функция ЗАМЫКАЕТСЯ на содержимом функции Generator от того и называется замыканием.
+	// ЦЕЛЬ - не захломлять глобальное пространство переменных
+	// Мощный прием кода
+	var apple = Generator();
+	var orange = Generator();
+
+	console.log(apple()) // 1
+	console.log(apple()) // 2
+	console.log(apple()) // 3
+	console.log(orange()) // 1
+	console.log(apple()) // 4
+	console.log(orange()) // 2
+
+	//////////////////////////
+
+	function GeneratorForTimer(start) {
+		var count = start;
+
+		return function() {
+			count++;
+			console.log(count)
+		}
+	}
+
+	setInterval(GeneratorForTimer(5000), 1000);
+	// Что происходит выше ?
+	// setInterval(function() {
+	//		count++;
+	//		console.log(count)
+	//	}, 1000)
+	// ДОПОЛНИТЕЛЬНЫЕ МАТЕРИАЛ
+	// 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>checkClick</title>
+</head>
+<body>
+
+<div class="tree">TREE</div>
+
+<script>
+	var tree = document.querySelector(".tree");
+
+	tree.addEventListener("click", function(e) {
+		var element = document.elementFromPoint(e.x, e.y)
+		console.log("TREE CLICK");
+		console.log(element); // элемент по коородинатам
+		console.log(this); // текущий элемент по которому кликнули
+		console.log(element == this);
+	});
+
+	// document.elementFromPoint(x, y)
+</script>
+
+</body>
+</html>

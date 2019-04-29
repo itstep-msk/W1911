@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>.toString.call()</title>
+</head>
+<body>
+
+<script>
+	// Как отличить массивы от объектов
+	// у всех глобальных функций есть свой метод toString, который работает по-разному
+	// И только у объектов он приводит к [object Object] [типДанных НазваниеГлобальнойФункции]
+	// Хранится эта функция в прототипе Object
+	// Object.prototype.toString <= тут
+	// toString обращается к элементу через this и смотрит на его скрытое свойство
+	// И чтобы посмотреть скрытые свойства массивов, чисел, строк и т.д.
+	// Нужно вызывать toString c ПОДМЕНОЙ КОНТКЕСТА
+	var cars = {x:1};
+
+	console.log(cars.toString()); // [object Object]
+	// Object, Number, String, Boolrean, Function - главные функции
+	var n = 5.123;
+	console.log(n.toFixed()) // "5"
+	Number.prototype.getHello = function() {
+		// this указывает на текущий элемент, от которого вызывается
+		return "Бесполезный метод и его значение"
+	}
+	console.log(n.getHello()); // "Бесполезный метод и его значение"
+	console.log(n.toString()) // "5.123"
+	console.log(typeof {}) // object
+	console.log(typeof []) // object
+	console.log(Object.prototype.toString.call(cars)) // [object Object]
+	console.log(Object.prototype.toString.call([1,2,3])) // [object Array]
+	console.log(Object.prototype.toString.call(1)) // [object Number]
+	console.log(Object.prototype.toString.call("abc")) // [object String]
+</script>
+
+</body>
+</html>

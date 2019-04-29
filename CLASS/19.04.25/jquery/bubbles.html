@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bubbles</title>
+</head>
+<body>
+
+<style>
+	.bubble {
+		width: 50px;
+		height: 50px;
+		background: pink;
+		display: inline-block;
+		border-radius: 50%;
+	}
+</style>
+
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+
+<script src="jquery-3.4.0.min.js"></script>
+<script>
+	var bubble = $(".bubble");
+
+	bubble.on("click", function() {
+		//$(this).hide(1000)
+		//$(this).css({"width": "100px"});
+		$(this).animate({"width": "100px"});
+		//$(this).slideUp();
+	})
+</script>
+</body>
+</html>

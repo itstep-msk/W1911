@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>push in object</title>
+</head>
+<body>
+
+<script>
+	var build = [];
+	build.push("Empire bay", "Trump tower");
+
+	console.log(build) // ["Empire bay", "Trump tower"]
+	console.log(build.length) // 2
+
+	var weapon = {
+		"0": "AK-47",
+		"length": 1
+	}
+
+	weapon.myPush = [].push
+	//weapon.myPush = Array.prototype.push
+	weapon.myPush("M14");
+	console.log(weapon) // {0: "AK-47", 1: "M14", length: 2, myPush: ƒ}
+</script>
+
+</body>
+</html>

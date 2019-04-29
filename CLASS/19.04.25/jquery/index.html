@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery</title>
+</head>
+<body>
+
+<div class="apple">apple</div>
+<div class="orange">orange</div>
+<div class="orange">orange</div>
+<div class="orange">orange</div>
+
+
+<script src="jquery-3.4.0.min.js"></script>
+<script>
+	//JQuery(".apple")
+	//document.querySelector(".apple")
+	//var apple = $(".apple");
+	//var orange = $(".orange");
+
+	//console.log(apple);
+	//console.log(orange);
+
+	$(".apple")
+		.hide()
+		.show()
+		.css({"color": "red"})
+		.html("APPLE")
+		.addClass("yellow")
+		//.html(); - метов возвращает значение, нельзя вызывать методы дальше
+
+	$(".orange").css({"font-size":"20px", "color":"green"});
+
+
+	$(".orange").on("click", function() {
+		console.log(this)
+		$(this).css({"color": "red"});
+	})
+
+	/*
+	$() - принимает селектор в виде строки или HTML элемент
+	Чаще всего если функция принимает УЖЕ элемент. Этот элемент является this
+	*/
+</script>
+
+</body>
+</html>

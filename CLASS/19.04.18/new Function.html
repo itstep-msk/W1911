@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>оператор new и создание объектов</title>
+</head>
+<body>
+
+<script>
+	// Обычный процесс создания объектов
+	var user01 = {
+		name: "Alex",
+		age: 20
+	}
+	var user02 = {
+		name: "Bob",
+		age: 30
+	}
+	var user03 = {
+		name: "Mary",
+		age: 40
+	}
+	// Автоматизированный процесс создание объектов
+
+	function CreateUser(name, age) {
+		// this = {}
+		this.name = name;
+		this.age = age;
+		// return this
+	}
+
+	var user04 = new CreateUser("Alex", 20);
+	var user05 = new CreateUser("Bob", 30);
+	var user06 = new CreateUser("Mary", 40);
+
+	console.log(user04);
+	console.log(user04.name);
+	console.log(user04.age);
+	// Является ли user04 экземпляром класса CreateUser
+	console.log(user04 instanceof CreateUser)
+
+	// Расширение экхемпляров(Добалвение новых свойство)
+	CreateUser.prototype.weight = 100;
+	CreateUser.prototype.greeting = function() {
+		console.log(this.name + ": Hello");
+	}
+	console.log(user04)// {name: "Alex", age: 20}
+	console.log(user04.weight) // 100
+	// Сначало он пытается найти свойство weight у себя если такого нет он ищет его в prototype
+
+	user04.greeting(); // Alex: Hello
+</script>
+
+</body>
+</html>

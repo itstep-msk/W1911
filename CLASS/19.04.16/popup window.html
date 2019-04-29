@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Popup window</title>
+</head>
+<body>
+
+<style>
+	.popup {
+		width: 200px;
+		height: 200px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		background: green;
+		display: none;
+	}
+	.popup-close {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		font-size: 30px;
+		cursor: pointer;
+	}
+</style>
+<a href="#">Ссылка</a>
+<div class="show">Показать</div>
+<div class="popup">
+	<div class="popup-close">X</div>
+</div>
+
+<script>
+	var popup = document.querySelector(".popup");
+	var show = document.querySelector(".show");
+	var close = document.querySelector(".popup-close");
+
+	close.addEventListener("click", function(){
+		popup.style.display = "none";
+	})
+
+	show.addEventListener("click", function() {
+		popup.style.display = "block";
+	})
+
+	///////////
+	//document.linkColor = "orange";
+</script>
+
+</body>
+</html>

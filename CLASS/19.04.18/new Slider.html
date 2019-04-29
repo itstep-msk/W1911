@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new Slider</title>
+</head>
+<body>
+
+<style>
+	.slider {
+		width: 400px;
+		overflow: hidden;
+	}
+</style>
+
+<div class="slider"></div>
+<div class="next">next</div>
+<div class="prev">prev</div>
+
+<script>
+	function Slider(images, element) {
+		var el = document.querySelector(element);
+		// Создание box'a, добавление класса и установка ширины
+		var box = document.createElement("div"); // <div></div>
+		var count = 0;
+		
+		function addStyle() {
+			box.classList.add("box"); // <div class="box"></div>
+			box.style.width = "10000px";
+			box.style.transition = "all, .25s";
+		}
+
+		function createImage() {
+			for(var i = 0; i < images.length; i++) {
+				var img = document.createElement("img"); // <img />
+				img.src = images[i] // <img src="1.jpg"/>
+				box.appendChild(img); // Добавляем картинку в box 3 раза
+			}
+			// Добавляем box с 3-мя картинками в основной элемент
+			el.appendChild(box);
+		}
+
+		function init() {
+			addStyle();
+			createImage();
+		}
+
+		// Создание управления
+		// Метод next появится у экземпляра класса Slider то есть у slider.next()
+		this.next = function() {
+			if(count >= images.length - 1) {
+				return;
+			}
+
+			var boxElement = document.querySelector(".box");
+			count++;
+			boxElement.style.marginLeft = (count * -400) + "px";
+			this.onChangeSlider(count);
+		}
+
+		this.prev = function() {
+			if(count <= 0) {
+				return;
+			}
+
+			var boxElement = document.querySelector(".box");
+			count--;
+			boxElement.style.marginLeft = (count * -400) + "px";
+			this.onChangeSlider(count);
+			// без bind <div class="next">next</div>.onChangeSlider()
+			// с bind slider.onChangeSlider()
+		}
+
+		this.onChangeSlider = function() {
+
+		}
+
+		this.slideShow = function(ms) {
+			var resolution = true;
+			var boxElement = document.querySelector(".box");
+			var timer = setInterval(function() {
+				if(resolution == true) {
+					count++;
+				} else {
+					count--;
+				}
+				if(count == 0) {
+					resolution = true
+				}
+				if(count == images.length - 1) {
+					resolution = false;
+				}
+				boxElement.style.marginLeft = (count * -400) + "px";
+			}, ms)
+		}
+
+		init(); // Инициализация, главная функция
+	}
+
+	var slider = new Slider(["1.jpg", "2.jpg", "3.jpg","1.jpg", "2.jpg", "3.jpg"], ".slider");
+	var next = document.querySelector(".next")
+	var prev = document.querySelector(".prev")
+
+	slider.onChangeSlider = function(event) {
+		console.log("Текущий слайд: " + event)
+		console.log("Событие слайдера")
+	}
+
+	next.addEventListener("click", slider.next.bind(slider))
+	prev.addEventListener("click", slider.prev.bind(slider))
+
+	// next.addEventListener("click", function() { this ссылается на текущий html элемент })
+</script>
+
+</body>
+</html>
