@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	<eat v-for="fruit in fruits" v-bind:item="fruit"></eat>
+	<eat v-for="vegetable in vegetables" v-bind:item="vegetable"></eat>
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	Vue.component("eat", {
+		props: ["item"],
+		template: "<div>Привет из компонента - {{ item }}</div>"
+	})
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			fruits: ["Яблоко", "Апельсин", "Слива"],
+			vegetables: ["Редька", "Картошка", "Свекла"]
+		}
+	})
+</script>
+
+</body>
+</html>

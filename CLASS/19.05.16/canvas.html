@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+</head>
+<body>
+
+<style>
+	canvas {
+		border: 1px solid;
+	}
+</style>
+
+<canvas width="1000px" height="500px"></canvas>
+
+<script>
+	var canvas = document.querySelector("canvas");
+	var ctx = canvas.getContext("2d"); // getContext("webgl")
+	// ctx - context
+	//ctx.fillStyle = "red";
+	//ctx.fillRect(10, 10, 20,20) // (x, y, width, height);
+	var x = 0;
+	var y = 0;
+	var resulution = {
+		x: true,
+		y: true
+	}
+
+	ctx.fillRect(x, y, 20, 20);
+
+	/*document.addEventListener("keydown", function(event) {
+		if(event.keyCode == 38) {
+			y--;
+		}
+		if(event.keyCode == 40) {
+			y++;
+		}
+		if(event.keyCode == 37) {
+			x--;
+		}
+		if(event.keyCode == 39) {
+			x++;
+		}
+		ctx.clearRect(0, 0, 1000, 500); // Очистка
+		ctx.fillRect(x, y, 20, 20)
+	})*/
+	setInterval(function() {
+		if(resulution.x == true) {
+			x++;
+			if(x == 980) {
+				resulution.x = false;
+			}
+		}
+		if(resulution.x == false) {
+			x--;
+			if(x == 0) {
+				resulution.x = true;
+			}
+		}
+		if(resulution.y == true) {
+			y++;
+			if(y == 480) {
+				resulution.y = false;
+			}
+		}
+		if(resulution.y == false) {
+			y--;
+			if(y == 0) {
+				resulution.y = true;
+			}
+		}
+		ctx.clearRect(0, 0, 1000, 500);
+		ctx.fillRect(x, y, 20, 20)
+	}, 4)
+</script>
+
+</body>
+</html>

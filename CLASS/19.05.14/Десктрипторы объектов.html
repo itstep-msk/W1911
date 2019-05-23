@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Дескрипторы объектов</title>
+</head>
+<body>
+
+<script>
+	////////////////////
+	var cars = {
+		bmw: 10,
+		audi: 20
+	}
+	// defineProperties - работа с несколькими свойствами
+	Object.defineProperty(cars, "audi", {
+		/* value: 100 */
+		enumerable: false, /* скрывает */
+		configurable: false, /* защищает от удаления */
+		writable: false  /* защищает от перезаписи */
+	})
+
+	console.log(cars)
+
+	for(key in cars) {
+		console.log(key) // bmw
+	}
+	////////////////////////////
+	var weapon = {
+		ak47: 10
+	}
+
+	weapon._ak47 = weapon.ak47;
+
+	Object.defineProperty(weapon, "ak47", {
+		get: function() {
+			return this._ak47;
+		},
+		set: function(value) {
+			console.log("Свойство помеялось")
+			this._ak47 = value;
+		}
+	})
+
+	Object.defineProperty(weapon, "_ak47", {
+		enumerable: false
+	})
+
+	console.log(weapon);
+	console.log(weapon.ak47);
+</script>
+
+</body>
+</html>

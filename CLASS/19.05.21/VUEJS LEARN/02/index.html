@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	{{ message }}
+	<br>
+	<span v-bind:title="message">Наведи сюда</span>
+	<img v-bind:src="imageUrl">
+	<!-- 
+	v-bind: - связывает данные с атрибутом
+	 -->
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			message: "Hello world",
+			imageUrl: "https://www.w3schools.com/w3css/img_lights.jpg"
+		}
+	})
+</script>
+
+</body>
+</html>

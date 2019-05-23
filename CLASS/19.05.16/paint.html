@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paint</title>
+</head>
+<body>
+
+	<style>
+	body {
+		margin: 0;
+	}
+	svg {
+		width: 100vw;
+		height: calc(100vh - 4px);
+	}
+</style>
+
+<svg>
+	<polyline class="paint" points="" fill="none" stroke="black" />
+</svg>
+
+<script>
+	var paint = document.querySelector(".paint");
+	var points = "";
+
+	
+	document.addEventListener("mousemove", function(event) {
+		console.log(event.x, event.y)
+		points = points + " " + event.x + "," + event.y
+			// " 10,10"
+			// " 10,10 20,20"
+			// " 10,10 20,20 30,30"
+			paint.setAttribute("points", points);
+			/*
+			1) Координаты добавлять в атрибут points="" элемента .paint
+			setAttribute(Куда, Что)
+			
+			"10,20 100,100" 
+			*/
+		})
+
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Методы Object'a</title>
+</head>
+<body>
+
+<script>
+	var space = {
+		earth: 10,
+		mars: 20,
+		stars: 30
+	}
+
+	console.log(Object.keys(space))
+	console.log(Object.values(space))
+	var galaxy = Object.create(space) // Копирование в прототип
+	console.log(galaxy);
+	console.log(galaxy.earth) // 10
+	space.earth = 200
+	console.log(galaxy.earth) // 200
+
+	var pseudoEmpty = Object.create({}) // Пустой но не совсем
+	console.log(pseudoEmpty)
+	var empty = Object.create(null)
+	console.log(empty) // No properties
+
+	space.isPrototypeOf(galaxy) // true, является ли space прототипом для galazy
+
+	
+</script>
+
+</body>
+</html>

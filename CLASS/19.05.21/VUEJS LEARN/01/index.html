@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	{{ message }}
+	<br>
+	Яблок: {{ fruits.apple }}
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			message: "Hello world",
+			fruits: {
+				apple: 10
+			}
+		}
+	})
+	// Все что в data переносится в созданный объект(app)
+	// console.log(app)
+	// app.message
+	// app.fruits.apple
+</script>
+
+</body>
+</html>

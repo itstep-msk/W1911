@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Методы массива</title>
+</head>
+<body>
+
+<div class="apple">Яблко</div>
+
+<script>
+	var rabbit = [1,2,3,4,5];
+	var animals = ["rabbit", "bear", "elephant", "dog"];
+
+	// forEach - аналог for(;;)
+	rabbit.forEach(function(item, index, array) {
+		console.log(item, index, array)
+		// continue - не работает внутри forEach
+	})
+	// Трансофрмация масссива
+	var newAnimals = animals.map(function(item) {
+		// то что возвращает функция то и попадает в новый массив
+		return item.length
+	})
+
+	// Фильтрация
+	var longAnimals = animals.filter(item => {
+		if(item.length > 5) {
+			return true;
+		}
+	})
+	// var longAnimals = animals.filter(item => item.length > 5)
+	console.log(longAnimals) // ["rabbit", "elephant"]
+
+	// Аккамулирование свойств
+	var elpy = [10,20,30,40,50];
+	elpy = elpy.reduce((result, currentValue) => {
+		return result + currentValue;
+	})
+	console.log(elpy) // 150
+	/*
+	rabbit = rabbit.map((item) => {
+		return item*2
+	})
+	*/
+	/*
+	rabbit = rabbit.map(item => {
+		return item*2
+	})
+	*/
+	rabbit = rabbit.map(item => item*2);
+
+	console.log(rabbit) // [2, 4, 6, 8, 10]
+	console.log(newAnimals) // [6, 4, 8, 3]
+
+	var apple = document.querySelector(".apple");
+
+	apple.addEventListener("click", function() {
+		console.log("обычная функция")
+		console.log(this) // Указывает на текущий элемент
+	})
+
+	apple.addEventListener("click", (e) => {
+		console.log("стрелочная функция")
+		console.log(e.target) // Указывает на текущий элемент
+		console.log(this) // Указывает на window
+		// У СТРЕЛОЧНОЙ ФУНКЦИИ НЕТ КОНТЕКСТА
+	})
+
+	////////////////////////////
+	var tiger = [111,222,555];
+	tiger.splice(2,0,333,444);
+	// (С какого идекса, сколько удалить, 3... - новые элементы массива)
+	console.log(tiger);
+
+	/*
+	array.sort(function(a, b) {
+		return b-a
+	})
+	*/
+</script>
+
+</body>
+</html>

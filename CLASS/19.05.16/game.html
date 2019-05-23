@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game canvas</title>
+</head>
+<body>
+
+<style>
+	canvas {
+		border: 1px solid;
+	}
+</style>
+
+<canvas width="1000px" height="500px"></canvas>
+
+<script>
+	var canvas = document.querySelector("canvas");
+	var ctx = canvas.getContext("2d");
+	var car = new Image();
+	var x = canvas.width;
+
+	car.src = "car.png";
+	car.onload = draw;
+
+	function draw() {
+		if(x < -car.width) {
+			x = canvas.width;
+		}
+		x = x - 10;
+		ctx.clearRect(0, 0, canvas.width, canvas.height)
+		ctx.drawImage(car, x, canvas.height - car.height + 45);
+		requestAnimationFrame(draw)
+	}
+</script>
+
+</body>
+</html>

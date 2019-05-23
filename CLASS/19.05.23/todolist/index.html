@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todolist</title>
+</head>
+<body>
+
+<div id="app">
+	<input type="text" v-model="task">
+	<button v-on:click="addTask">ADD</button>
+	<task v-for="(task, i) in tasks" v-bind:item="task" v-bind:index="i"></task>
+</div>
+
+<template id="task-template">
+	<div>{{ index }} - {{ item }}</div>
+</template>
+
+<script src="vue.min.js"></script>
+<script>
+	Vue.component("task", {
+		props: ["item", "index"],
+		template: "#task-template"
+	})
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			task: "",
+			tasks: []
+		},
+		methods: {
+			addTask: function() {
+				this.tasks.push(this.task);
+				this.task = "";
+			}
+		}
+	})
+</script>
+</body>
+</html>

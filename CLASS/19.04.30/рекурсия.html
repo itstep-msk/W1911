@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Рекурсия</title>
+</head>
+<body>
+
+<script>
+	/*
+	1) function calcFactorial(5) {
+		if(5 == 1) {
+			return 1;
+		} else {
+			return 5 * 24;
+		}
+	}
+	2) function calcFactorial(4) {
+		if(4 == 1) {
+			return 1;
+		} else {
+			return 4 * 6;
+		}
+	}
+	3) function calcFactorial(3) {
+		if(3 == 1) {
+			return 1;
+		} else {
+			return 3*2;
+		}
+	}
+	4) function calcFactorial(2) {
+		if(2 == 1) {
+			return 1;
+		} else {
+			return 2*1;
+		}
+	}
+	5) function calcFactorial(1) {
+		if(1 == 1) {
+			return 1;
+		} else {
+			return number * calcFactorial(number - 1);
+		}
+	}
+	*/
+	function calcFactorial(number) {
+		if(number == 1) {
+			return 1;
+		} else {
+			return number * calcFactorial(number - 1);
+		}
+	}
+	// 5*4*3*2*1 = 120
+	console.log(calcFactorial(5)) // 120
+
+	console.time()
+	// код... 
+	console.log(calcFactorial(160))
+	console.timeEnd()
+	// default: 0.087890625ms
+
+	var arr = [];
+	var n = 5;
+	var result = 1;
+	for(var i = 0; i < n; i++) {
+		arr.push(n-i)
+	}
+	console.log(arr) // [5, 4, 3, 2, 1]
+	for(var i = 0; i < arr.length; i++) {
+		result = result * arr[i];
+		// result = 1 * 5 // 5
+		// result = 5 * 4 // 20
+		// result = 20 * 3 // 60
+		// result = 60 * 2 // 120
+		// result = 120 * 1 // 120
+	}
+	console.log(result)
+</script>
+</body>
+</html>

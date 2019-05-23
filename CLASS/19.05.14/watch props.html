@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>watch props</title>
+</head>
+<body>
+
+<script>
+	var fruits = {
+		apple: 10,
+		orange: 20
+	}
+
+	function watch(object, callback) {
+		// Object.keys(Объект) - ключи
+		// Object.values(Объект) - значения
+		var keys = Object.keys(object);
+		
+		// forEach - аналог обчного for
+		keys.forEach(function(item, index, array) {
+			
+			// Создания нового свойства и копирования значения из старого
+			object["_" + item] = object[item];
+
+			// Скрываем свойства с префиксом _
+			Object.defineProperty(object, "_" + item, {
+				enumerable: false
+			})
+
+			// Переделываем свойсва на getter/setter
+			Object.defineProperty(object, item, {
+				get: function() {
+					return this["_" + item];
+				},
+				set: function(value) {
+					console.log("Следим за свойством");
+					console.log(callback) // Тело функции из аргумента
+					callback();
+					this["_" + item] = value;
+				}
+			})
+		})
+		//console.log(object)
+	}
+
+	watch(fruits, function() {
+		console.log("Следим за свойством из своего callback'a");
+	});
+
+	console.log(fruits);
+	console.log(fruits.apple); // 10,...watch property
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	<div class="planet" v-for="item in planets" v-bind:class="item">{{ item }}</div>
+	<hr>
+	<div v-for="shape in shapes" v-bind:class="shape.name">
+		<!-- shape - объект - { name: "Треугольник", size: 10 } -->
+		Имя: {{ shape.name }} 
+		<br>
+		Размер: {{ shape.size }}
+	</div>
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			planets: ["Mercury", "Venus", "Earth"],
+			shapes: [
+				{ name: "Треугольник", size: 10 },
+				{ name: "Квадрат", size: 20 },
+				{ name: "Круг", size: 30 },
+			]
+		}
+	})
+</script>
+
+</body>
+</html>

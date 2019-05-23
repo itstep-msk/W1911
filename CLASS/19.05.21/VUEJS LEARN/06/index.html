@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	{{ message }}
+	<br>
+	<input type="text" v-model="message">
+	<!-- и забирает и присваивает данные у input'a -->
+	<button v-on:click="showText">Показать что ввел пользователь</button>
+	<button v-on:click="resetText">Очистить</button>
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			message: ""
+		},
+		methods: {
+			showText: function() {
+				console.log("Пользователь ввел: " + this.message)
+			},
+			resetText: function() {
+				this.message = "";
+			}
+		}
+	})
+</script>
+
+</body>
+</html>

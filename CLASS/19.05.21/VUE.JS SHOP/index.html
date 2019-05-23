@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE.JS SHOP</title>
+	<link rel="stylesheet" href="css/uikit.min.css">
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div class="uk-container uk-margin-large-top" id="app">
+		<nav class="uk-navbar-container" uk-navbar>
+			<div class="uk-navbar-left">
+				<a href="" class="uk-navbar-item uk-logo">DAEWOO SHOP</a>
+				<ul class="uk-navbar-nav">
+					<li><a href=""><router-link to="/">Главная</router-link></a></li>
+					<li><a href=""><router-link to="/catalog">Каталог</router-link></a></li>
+					<li><a href=""><router-link to="/about">О компании</router-link></a></li>
+				</ul>
+			</div>
+			<div class="uk-navbar-right uk-margin-small-right">
+				<router-link to="/cart">
+					<span uk-icon="icon: cart; ratio: 2">
+						<span class="uk-text-middle uk-text-large">{{ cart.length }}</span>
+					</span>
+				</router-link>
+			</div>
+		</nav>
+		<router-view></router-view>
+	</div>
+
+	<template id="home">
+		<div>
+			<div class="uk-flex uk-margin-top">
+				<input class="uk-input" placeholder="Поиск товаров..." v-model="$router.app.search">
+				<a href="index.html#/catalog" type="submit" class="uk-button uk-button-default">Поиск</a>
+			</div>
+			<div uk-slideshow="max-height: 300" class="uk-margin-top">
+			    <ul class="uk-slideshow-items">
+			        <li>
+			            <img src="https://mosautoshina.ru/i/auto/daewoo_nexia_2016.jpg" uk-cover>
+			        </li>
+			        <li>
+			            <img src="https://mosautoshina.ru/i/auto/daewoo_nexia_2016.jpg" uk-cover>
+			        </li>
+			        <li>
+			            <img src="https://mosautoshina.ru/i/auto/daewoo_nexia_2016.jpg" uk-cover>
+			        </li>
+			    </ul>
+			</div>
+			<div uk-grid class="uk-margin-large-top">
+				<div class="uk-width-1-2">
+					Товарищи! начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке модели развития. Повседневная практика показывает, что сложившаяся структура организации играет важную роль в формировании существенных финансовых и административных условий. Равным образом реализация намеченных плановых заданий представляет собой интересный эксперимент проверки модели развития. Не следует, однако забывать, что консультация с широким активом представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт реализация намеченных плановых заданий играет важную роль в формировании существенных финансовых и административных условий. Не следует, однако забывать, что рамки и место обучения кадров в значительной степени обуславливает создание существенных финансовых и административных условий.
+				</div>
+				<div class="uk-width-1-2">
+					<img src="http://cdn.motorpage.ru/Photos/800/184.jpg">
+				</div>
+				<div class="uk-width-1-2">
+					<img src="http://www.nexiaclub.com/tuning/nexseite.jpg">
+				</div>
+				<div class="uk-width-1-2">
+					Товарищи! начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке модели развития. Повседневная практика показывает, что сложившаяся структура организации играет важную роль в формировании существенных финансовых и административных условий. Равным образом реализация намеченных плановых заданий представляет собой интересный эксперимент проверки модели развития. Не следует, однако забывать, что консультация с широким активом представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт реализация намеченных плановых заданий играет важную роль в формировании существенных финансовых и административных условий. Не следует, однако забывать, что рамки и место обучения кадров в значительной степени обуславливает создание существенных финансовых и административных условий.
+				</div>
+				<div class="uk-width-1-2">
+					Товарищи! начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке модели развития. Повседневная практика показывает, что сложившаяся структура организации играет важную роль в формировании существенных финансовых и административных условий. Равным образом реализация намеченных плановых заданий представляет собой интересный эксперимент проверки модели развития. Не следует, однако забывать, что консультация с широким активом представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт реализация намеченных плановых заданий играет важную роль в формировании существенных финансовых и административных условий. Не следует, однако забывать, что рамки и место обучения кадров в значительной степени обуславливает создание существенных финансовых и административных условий.
+				</div>
+				<div class="uk-width-1-2">
+					<img src="https://www.kolesa.ru/uploads/2018/10/12Daewoo-Nexia-Sedan-05.1994-2008-980x0-c-default.jpg">
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="catalog">
+		<div>
+			<div class="uk-flex uk-margin-top">
+				<input class="uk-input" placeholder="Поиск товаров..." v-model="$router.app.search">
+			</div>
+			<div class="uk-flex uk-margin-top">
+				<div class="uk-margin-remove uk-width-1-1" uk-grid>
+					<div class="uk-card uk-card-default uk-card-body uk-width-1-4">
+						<div class="uk-text-bold">Цена</div>
+						<div class="uk-flex">
+							<input class="uk-input" placeholder="Цена от..." type="number" v-model="$router.app.price[0]">
+							<input class="uk-input" placeholder="Цена до..." type="number" v-model="$router.app.price[1]">
+						</div>
+						<div class="uk-margin-top uk-text-bold">Бренды</div>
+						<div class="uk-flex uk-flex-column">
+							<label><input class="uk-checkbox" type="checkbox" value="bmw" v-model="$router.app.brands"> BMW</label>
+							<label><input class="uk-checkbox" type="checkbox" value="mersedes" v-model="$router.app.brands"> Mersedes</label>
+							<label><input class="uk-checkbox" type="checkbox" value="daewoo" v-model="$router.app.brands"> Daewoo</label>
+						</div>
+					</div>
+					<div class="uk-card uk-card-default uk-card-body uk-width-3-4 uk-margin-remove" uk-grid>
+						<card v-for="(car, index) in $router.app.cars" v-bind:item="car" v-bind:index="index"></card>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="about">
+		
+	</template>
+
+	<template id="cart">
+		<div>
+			<div v-if="$router.app.getCountGoods > 0">
+				<h3 class="uk-margin-top">Количество товара: {{ $router.app.getCountGoods }}</h3>
+				<div class="uk-flex uk-flex-wrap">
+					<cart-item v-for="(cart, index) in $router.app.cart" v-bind:item="cart" v-bind:index="index"></cart-item>
+				</div>
+				<div class="uk-flex uk-flex-between uk-margin-medium-top uk-margin-medium-bottom uk-flex-middle">
+					<div class="uk-text-large">Итог: {{ $router.app.getPriceGoods }} рублей.</div>
+					<div class="uk-button uk-button-primary">Оформить</div>
+				</div>
+			</div>
+			<div v-else>
+				<h3 class="uk-margin-large-top uk-text-center">Товары отсутствуют</h3>
+			</div>
+		</div>
+	</template>
+
+	<script src="js/uikit.min.js"></script>
+	<script src="js/uikit-icons.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-router.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
