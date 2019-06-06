@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script>
+	// document - объект
+	// querySelector("") - HTML элемент
+	// querySelectorAll("") / [,,,] HTML элементы
+
+	// События
+	//document.querySelector("").onclick = function() {}
+	//document.querySelector("").addEventListener("click", function() {})
+
+	// Создание события
+	// Создали
+	var fruits = new Event("apple_event");
+
+	//console.log(fruits)
+	// Сгенерировали
+	setTimeout(function() {
+		dispatchEvent(fruits);
+	}, 1000)
+	// Прослушали
+	window.addEventListener("apple_event", function(e) {
+		console.log(e)
+		console.log("Наше событие apple_event сработало...")
+	})
+
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Редактирование</title>
+</head>
+<body>
+
+<div class="house">
+	<div class="door"></div>
+	<div class="windows"></div>
+</div>
+<!-- А я не коммент, я - узел -->
+<input class="steel">
+<input type="range" class="range">
+<script>
+	var house = document.querySelector(".house");
+	var door = document.querySelector(".door");
+	var windows = document.querySelector(".windows");
+	var steel = document.querySelector(".steel");
+	var range = document.querySelector(".range");
+
+	door.innerHTML = 10;
+	console.log(door.innerHTML)
+	door.innerHTML = "<div class='termit'>" + 20 + "</div>";
+	// Создание элемента
+	var element = document.createElement("div");
+	element.classList.add("termit");
+	element.innerHTML = "20";
+
+	door.appendChild(element); // Принимает только УЗЛЫ
+	// insert​Adjacent​HTML()
+	//element.insertAdjacentHTML("beforebegin", door)
+	//door.insert​Adjacent​HTML("beforeend", element)
+	door.setAttribute("data-size", "20m")
+	console.log(door.getAttribute("data-size")) // 20m
+
+	// Обычные элементы - innerHTML
+	// элементы формы - value
+	steel.value = 10
+	console.log(steel.value); // 10
+
+	console.log(range.value) // 50
+	range.value = 20
+
+	range.addEventListener("input", function() {
+		console.log(this.value)
+	})
+</script>
+
+</body>
+</html>

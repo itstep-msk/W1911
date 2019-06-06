@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Всплытие события</title>
+</head>
+<body>
+
+<style>
+	div { background: green; padding: 20px; }
+	ul { background: yellow; padding: 20px; }
+	li { background: orange;  }
+</style>
+
+<div>
+	<ul>
+		<li>
+			Клик
+		</li>
+	</ul>
+</div>
+
+<a class="link" href="https://yandex.ru">yandex</a>
+
+<script>
+	var div = document.querySelector("div");
+	var ul = document.querySelector("ul");
+	var li = document.querySelector("li");
+	var link = document.querySelector(".link");
+
+	div.addEventListener("click", function() {
+		console.log("div 01");
+	})
+	ul.addEventListener("click", function() {
+		console.log("ul 01");
+	})
+	li.addEventListener("click", function(e) {
+		e.stopPropagation() // Отмена всплытия
+		e.stopImmediatePropagation(); // Отмена других обработчиков у ЭТОГО элементв
+		console.log("li 01");
+	})
+	li.addEventListener("click", function(e) {
+		console.log("li 02");
+	})
+	li.addEventListener("click", function(e) {
+		console.log("li 03");
+	})
+
+	link.addEventListener("click", function(e) {
+		e.preventDefault(); // Отмена события
+		console.log("Событие отменили...");
+	})
+</script>
+
+</body>
+</html>

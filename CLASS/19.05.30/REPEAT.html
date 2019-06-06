@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>REPEAT</title>
+</head>
+<body>
+
+<script>
+	//Типы данных
+	//boolean
+	//string
+	//number
+	//undefined
+	//null
+	//object
+
+	//Проверка на тип данных
+	typeof "Hola" // string
+
+	var obj = {}; obj.toString() // [object Object]
+	// toString() { return this[[Class]] }
+	// Object.prototype.toString.call("Hola") // [object String]
+	// Object.prototype.toString.call(5) // [object Number]
+	// Object.prototype.toString.call(function(){}) // [object Function]
+	// Number, Boolean, Function.... --- Object
+
+	// Операторы
+	// "5" + 5  = "55"
+	// +"5" + 5  = 10
+
+	// Оператор =
+	var a = 10;
+	a = a + 5
+	/*
+	"5" == 5 // true
+	"5" === 5 // false
+	10 === 5 // false
+	*/
+	//10 == 10 // true
+	//10 != 10 // false
+	//10 != 9 // true
+
+	10 > 5 > 3 // false
+	true > 3 // 
+	1 > 3 // false
+
+	null == 0 // false
+	null > 0 // false
+	null >= 0 // true
+
+	// Преобразование типов
+	"5" == [1,2,3];
+	"5" == "1,2,3";
+	//0 == false >>> 0 == 0
+
+	var apple = {
+		toString: function() {
+			return 10;
+		}
+	};
+	//10 == apple >>> 10 == [object Object] 
+
+	console.log(10 == apple) // true
+
+	// Условные операторы
+	// if(Условие) {
+	// 	Если условие верно
+	// } else {
+	// 	Если нет
+	// }
+	// Тернарный оператор
+	//return Условие ? Если да : Если нет;
+
+	// switch
+	var a = 10
+	switch(a) {
+		case 10:
+		case 20:
+		case 30:
+			//function() {...}
+			break;
+		default:
+			// Если ничего не подошло из case'ов
+			break;
+	}
+
+	// Циклы
+	// for(Счетчик; Условие; Шаг) {
+	// 	continue - пропуск
+	// 	break - выход
+	// }
+
+	for(var i = 0; i < 5; i++) {
+		//alert(i);
+		if(i == 3) {
+			continue
+		}
+	}
+	// i - 5
+	// 0,1,2,4
+
+	var animals = {
+		type: "Dog",
+		name: "Sharik"
+	}
+
+	for(key in animals) {
+		// key == "type"
+		// key == "name"
+		console.log( animals[key] ) // "Dog", "Sharik"
+	}
+
+	var numbers = {
+		a: 20
+	}
+	var key = "a";
+	console.log(numbers[key]) // 20
+	console.log(numbers["a"]) // 20
+
+	var num = {
+		a: 10
+	}
+	console.log((20 + num).length) // 17
+	console.log((20 + "[object Object]").length) // 17
+
+	// toString
+	// valueOf
+
+	var a = 1
+	var b = { toString: function() { return "1" } }
+	var c = 1
+
+	a + b + c // "111"
+	// while(Условие) {
+
+	// }
+
+	function Hello(name) {
+		// if(Если функция вызывана через call) {
+		// 	this = контекст
+		// 	this = {a: 10}
+		// }
+		console.log(arguments)
+		console.log(this)
+		return "Привет " + name;
+	}
+	Hello("Alex") // "Привет Alex"
+	Hello("Bob") // "Привет Bob"
+	Hello() // "Привет undefined"
+	Hello.call(num, "Alex") // {a: 10}
+	Hello.apply(num, ["Alex"]) // {a: 10}
+
+	var numbersArr = [1,2,3,4,5];
+
+	console.log(Math.max(1,2,3,4,5)) // 5
+	console.log(Math.max.apply(null, [1,2,3,4,5])) // 5
+	console.log(Math.max.apply(null, numbersArr)) // 5
+
+	// Прототипы, классы
+	var vasya = {
+		name: "Vasya",
+		age: 10,
+		gender: "male"
+	}
+
+	function User(n, a ,g) {
+		// this = {};
+		this.name = n;
+		this.age = a;
+		this.gender = g;
+		// return this
+	}
+	User.prototype.hatSize = "100h";
+
+	var petya = new User("Petya", 20, "male")
+	console.log(petya)
+	console.log(petya.name) // Petya
+
+	User.prototype.weight = "1т";
+
+	console.log(petya.weight) //  "1т"
+	console.log(petya.toString()) //  "1т" // [object Object]
+
+	toString
+	petya => User => Object
+</script>
+
+</body>
+</html>
