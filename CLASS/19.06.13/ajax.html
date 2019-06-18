@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<script src="jquery-3.4.1.js"></script>
+<script>
+	// $("div").html()
+	// $.getJSON()
+
+	// AJAX JQEURY
+	$.ajax({
+		url: "test.php",
+		type: "GET",
+		data: { a: 10, b: 20 }, // a=10&b=20
+		success: function(data) {
+			console.log("JQEURY: Сервер ответил...");
+			console.log(data);
+		}
+	})
+	// AJAX JAVASCRIPT
+	var ajax = new XMLHttpRequest();
+
+	ajax.open("GET", "test.php?a=10&b=20");
+	
+	ajax.onreadystatechange = function() {
+		if(ajax.readyState == 4 && ajax.status == 200) {
+			console.log("XMLHttpRequest: Сервер ответил...");
+			console.log(ajax.responseText);
+		}
+	}
+		
+
+	ajax.send();
+	//ajax.responseText
+
+	function ajaxFunc(option) {
+		var ajax = new XMLHttpRequest();
+		ajax.open(option.type, option.url + "?" + option.data);
+
+		ajax.onreadystatechange = function() {
+			if(ajax.readyState == 4 && ajax.status == 200) {
+				option.success(ajax.responseText);
+			}
+		}
+
+		ajax.send();
+	}
+
+	ajaxFunc({
+		url: "test.php",
+		type: "GET",
+		data: "a=10&b=20", // a=10&b=20
+		success: function(data) {
+			console.log("Своя функция: Сервер ответил...");
+			console.log(data);
+		}
+	})
+	
+</script>
+</body>
+</html>

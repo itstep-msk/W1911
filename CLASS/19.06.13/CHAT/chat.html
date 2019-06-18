@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<input class="nick" placeholder="Имя...">
+<input class="message" placeholder="Сообщение...">
+<input type="submit" class="send">
+<div class="chat"></div>
+
+<script src="jquery-3.4.1.js"></script>
+<script>
+	var nick = $(".nick");
+	var message = $(".message");
+	var send = $(".send");
+	var chat = $(".chat");
+
+	// клик на кнопку send
+	send.on("click", function() {
+		// Создали ajax запрос
+		$.ajax({
+			url: "server.php", // ссылка на обработчик запроса
+			type: "GET", // тип запроса
+			data: { // Данные, которые передаем
+				"nick": nick.val(), // nick=Vasya&message=Hello
+				"message": message.val()
+			},
+			// Функция вызывается когда от сервера пришел ответ с данными
+			success: function(data) {
+				//console.log(data);
+				chat.html(data);
+			}
+		})
+	})
+</script>
+</body>
+</html>
