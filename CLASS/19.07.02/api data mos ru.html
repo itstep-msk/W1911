@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bike station on yandex</title>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=f5cd46a9-cea7-4837-860a-097e0d31643c
+&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+	<div id="map" style="width: 600px; height: 400px"></div>
+	<script src="jquery-3.4.1.min.js"></script>
+	<script>
+		// APIDATA.MOS.RU
+		var apikey = "?api_key=a600c088fab7715dfd9bd1b21e87740e";
+		var link = "https://apidata.mos.ru/v1/datasets/";
+		var id = "916";
+		var geodata = "/features"
+		var query = link + id + geodata + apikey;
+
+		$.getJSON(query, function(data) {
+			console.log(data);
+
+			// YANDEX MAP
+		    ymaps.ready(init);
+
+		    function init(){    
+		        var myMap = new ymaps.Map("map", {
+		            center: [55.76, 37.64],
+		            zoom: 10
+		        });
+
+		        var x;
+		        var y;
+
+		        for(var i = 0; i < data.features.length; i++) {
+		        	x = data.features[i].geometry.coordinates[1]
+		        	y = data.features[i].geometry.coordinates[0]
+
+		        	myMap.geoObjects.add(new ymaps.Placemark([x, y]))
+		        }
+
+		    }
+		})
+		
+	</script>
+</body>
+</html>

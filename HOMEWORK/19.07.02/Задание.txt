@@ -1,0 +1,10 @@
+1) APIDATA.MOS.RU
+
+Вывести на карту по координатам точки wi-fi и обозначить радиус. В apidata.mos.ru помимо координат есть радиус действия. В api яндекс.карт есть элемент - круг (https://tech.yandex.ru/maps/jsbox/2.1/circle)
+
+2) API TUTU.RU
+
+https://support.travelpayouts.com/hc/ru/articles/360020147791-API-%D0%BE%D1%82-Tutu-ru
+
+LEVEL EASY: Выведите данные: время поездки, тип места(купе, плац, люк), и стоимость
+LEVEL HARD: Добавьте возможность выбора города: откуда -> куда
