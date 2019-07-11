@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Окончание у слов</title>
+</head>
+<body>
+
+<script>
+function getWord(n) {
+	if(n < 5) {
+		if(n == 1) {
+			return "ка";
+		} else {
+			return "ки"
+		}
+	} else {
+		return "ок"
+	}
+	//return n < 5 ? n == 1 ? "ка" : "ки" : "ок"
+}
+getWord(1) // ка
+getWord(3) // ки
+getWord(5) // ок
+// Пересад + getWord
+</script>
+
+</body>
+</html>
