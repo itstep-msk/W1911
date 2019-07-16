@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test table image</title>
+</head>
+<body>
+
+<table class="table" width="100%" border="1"></table>
+<div class="images"></div>
+
+<script>
+	var table = document.querySelector(".table");
+	var image = "http://localhost/19.07.16/?width=50&height=50";
+	var tr = "";
+	var td = "";
+
+	for(var i = 0; i < 5; i++) {
+		for(var j = 0; j < 5; j++) {
+			td += "<td><img src='" + image + "'></td>";
+		}
+
+		tr += "<tr>" + td + "</tr>";
+		td = "";
+	}
+
+	table.innerHTML = tr;
+
+	// images
+	var images = document.querySelector(".images");
+	var pic = "http://localhost/19.07.16/?";
+	var width = 50;
+	var height = 50;
+
+	for(var i = 0; i <= 100; i++) {
+		images.innerHTML += "<img style='border: 1px solid black' src='" + pic + "width=" + width + "&height=" + height + "'>";
+		width++;
+		height++;
+	}
+</script>
+</body>
+</html>
