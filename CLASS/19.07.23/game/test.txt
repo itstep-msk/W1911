@@ -1,0 +1,38 @@
+<form action="" method="POST">
+	<table>
+		<tr>
+			<td>
+				<input size="1" name="block_1" value="X">
+			</td>
+			<td>
+				<input size="1" name="block_2" value="O">
+			</td>
+			<td>
+				<input size="1" name="block_3" value="%block_3%">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input size="1" name="block_4" value="%block_4%">
+			</td>
+			<td>
+				<input size="1" name="block_5" value="X">
+			</td>
+			<td>
+				<input size="1" name="block_6" value="%block_6%">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input size="1" name="block_7" value="%block_7%">
+			</td>
+			<td>
+				<input size="1" name="block_8" value="%block_8%">
+			</td>
+			<td>
+				<input size="1" name="block_9" value="X">
+			</td>
+		</tr>
+	</table>
+	<input type="submit">
+</form>
