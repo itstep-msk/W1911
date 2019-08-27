@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checklist</title>
+</head>
+<body>
+
+<input type="text" class="text">
+<input type="submit" class="button">
+<div class="list"></div>
+
+<script>
+	var text = document.querySelector(".text");
+	var button = document.querySelector(".button");
+	var list = document.querySelector(".list");
+	var storage = new Storage();
+
+	button.addEventListener("click", addTask);
+
+	function addTask() {
+		//list.innerHTML += text.value + "<br>";
+		//storage.add(new Task(text.value));
+		var task = new Task(text.value);
+		text.value = "";
+		
+		storage.add(task);
+		storage.clear();
+		storage.show();
+	}
+
+	// Задачи
+	function Task(text) {
+		this.text = text;
+		this.date = new Date();
+	}
+
+	// Хранилище
+	function Storage() {
+		this.data = [];
+	}
+
+	Storage.prototype.add = function(data) {
+		this.data.push(data);
+	}
+
+	Storage.prototype.show = function() {
+		for(var i = 0; i < this.data.length; i++) {
+			list.innerHTML += this.data[i].text + "<br>";
+		}
+	}
+
+	Storage.prototype.clear = function() {
+		list.innerHTML = "";
+	}
+</script>
+
+</body>
+</html>

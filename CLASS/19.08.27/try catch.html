@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Try catch</title>
+</head>
+<body>
+
+<script>
+	var fruits = {
+		orange: 10
+	}
+
+	try {
+		fruits.orange();
+	} catch(e) {
+		console.log(e)
+	} finally {
+		console.log("finally")
+	}
+
+	console.log("Че делать-то ?");
+
+
+	function test() {
+		try {
+			console.log("try 1") // 1
+			return "it's work return"; // 3
+			console.log("try 2")
+		} catch {
+
+		} finally {
+			console.log("work ?") // 2
+		}
+	}
+
+	console.log(test());
+</script>
+
+</body>
+</html>
