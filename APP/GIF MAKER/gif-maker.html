@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GIF Maker</title>
+</head>
+<body>
+
+<style>
+	.container {
+	    width: 700px;
+	    border: 1px solid;
+	    margin: 0 auto;
+	    margin-top: 50px;
+	}
+
+	.paint {
+		width: 100%;
+	    height: 350px;
+	    border: 1px solid;
+	    box-sizing: border-box;
+	}
+
+	.paint svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.interface {
+	    border: 1px solid;
+	    padding: 10px;
+	}
+
+	.button {
+		width: 50px;
+	    height: 50px;
+	    display: inline-block;
+	    box-sizing: border-box;
+	    border: 1px solid green;
+	    background-size: 100%;
+	    background-repeat: no-repeat;
+	    cursor: pointer;
+	    vertical-align: top;
+	    text-align: center;
+	    line-height: 50px;
+	    font-size: 30px;
+	    font-family: "Arial";
+	}
+
+	.button-active {
+		border-style: dashed;
+		border-color: red;
+	}
+
+	.draw {
+		background-image: url("draw.png");
+	}
+
+	.clear {
+		background-image: url("clear.png");
+	}
+</style>
+
+<div class="container">
+	<div class="paint"></div>
+	<div class="interface">
+		<div class="button draw"></div>
+		<div class="button clear"></div>
+	</div>
+	<div class="interface">
+		<div class="frames-button"></div>
+		<div class="button add-frame">+</div>
+	</div>
+</div>
+
+<script>
+	var paint = document.querySelector(".paint");
+	var addFrame = document.querySelector(".add-frame");
+	var framesButton = document.querySelector(".frames-button");
+	var clickStatus = false;
+	var points = "";
+	var polyline;
+	var framesCount = 1;
+	var currentFrame;
+
+	framesButton.addEventListener("click", function(e) {
+		var frameId = e.target.getAttribute("frameid");
+
+		for(var i = 0; i < paint.children.length; i++) {
+			paint.children[i].style.display = "none";
+		}
+
+		paint.children[frameId - 1].style.display = "block";
+		currentFrame = document.querySelector(".frame-" + frameId);
+	})
+
+	addFrame.addEventListener("click", function() {
+		var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		var frameButton = document.createElement("div");
+
+		svg.classList.add("frame-" + framesCount);
+		paint.appendChild(svg);
+
+		frameButton.classList.add("button");
+		frameButton.setAttribute("frameId", framesCount);
+		frameButton.innerHTML = framesCount;
+		framesButton.appendChild(frameButton)
+
+		framesCount++;
+	})
+
+	paint.addEventListener("mousedown", function() {
+		clickStatus = true;
+		
+		points = "";
+		polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+		polyline.setAttribute("fill", "none")
+		polyline.setAttribute("stroke", "black");
+		currentFrame.appendChild(polyline);
+	})
+
+	paint.addEventListener("mouseup", function() {
+		clickStatus = false;
+	})
+
+	paint.addEventListener("mousemove", function(e) {
+		if(clickStatus) {
+
+			var x = e.x - paint.offsetLeft;
+			var y = e.y - paint.offsetTop;
+
+			points += x + "," + y + " ";
+			polyline.setAttribute("points", points);
+		}
+	})
+
+</script>
+</body>
+</html>

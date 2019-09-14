@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Protptype</title>
+</head>
+<body>
+
+<script>
+	// Animals
+	function Animals(type) {
+		this.type = type;
+	}
+
+	Animals.prototype.jump = function() {
+		return this.type + " прыгает...";
+	}
+	// Fish
+	function Fish(type) {
+		this.type = type;
+	}
+
+	// Копирование методов от Animals - Наследование
+	for(key in Animals.prototype) {
+		Fish.prototype[key] = Animals.prototype[key]; 
+		// Fish.prototype["jump"] = function() { ..." прыгает..."... }
+	}
+
+	Fish.prototype.swim = function() {
+		return this.type + " плывет...";
+	}
+
+	var rabbit = new Animals("rabbit");
+	var dolphin = new Fish("dolphin");
+
+	console.log(rabbit.jump())
+	console.log(dolphin.swim())
+	console.log(dolphin.jump())
+	console.log(rabbit.swim())
+</script>
+
+</body>
+</html>

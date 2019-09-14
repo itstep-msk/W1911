@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class</title>
+</head>
+<body>
+
+<script>
+	class Animals {
+		constructor(t, w) {
+			this.type = t;
+			this.weight = w;
+		}
+
+		jump() {
+			return this.type + " прыгает...";
+		}
+	}
+
+	class Frog extends Animals {
+		constructor(t, w, c) {
+			super(t, w); // обращение к конструктору родителя
+			this.color = c;
+		}
+
+		run() {
+			return this.type + " бегает...";
+		}
+	}
+	//
+	// function Animals(type) {
+	// 	this.type = type
+	// }
+
+	// Animals.prototype.jump = function() {
+	// 	return this.type + " прыгает...";
+	// }
+	// Функциональный стиль
+	// var rabbit = new Animals("rabbit")
+
+	// Классовый стиль
+	var rabbit = new Animals("rabbit", 100)
+	console.log(rabbit.jump())
+	console.log(rabbit.type)
+	console.log(rabbit.weight)
+
+	var frog = new Frog("лягуха", 10, "green");
+	console.log(frog.jump())
+	console.log(frog.run())
+	console.log(frog.type)
+	console.log(frog.weight)
+	console.log(frog.color)
+</script>
+
+</body>
+</html>
