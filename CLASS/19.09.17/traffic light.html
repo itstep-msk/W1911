@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>traffic light</title>
+</head>
+<body>
+
+<style>
+	.traffic-light {
+		width: 100px;
+		height: 300px;
+		border: 4px solid black;
+		border-radius: 10px;
+		margin: 0 auto;
+		margin-top: 50px;
+	}
+
+	.lamp {
+	    width: 80px;
+	    height: 80px;
+	    border-radius: 50%;
+	    margin: 0 auto;
+	    margin-top: 15px;
+	    border: 2px solid black;
+    	box-sizing: border-box;
+	}
+
+	.red {
+		background: red;
+	}
+
+	.orange {
+		background: orange;
+	}
+
+	.green {
+		background: green;
+	}
+</style>
+
+<div class="traffic-light">
+	<div class="lamp"></div>
+	<div class="lamp"></div>
+	<div class="lamp"></div>
+</div>
+
+<script>
+	var colors = ["red", "orange", "green"];
+	var currentColor = 0;
+	var trafficLight = document.querySelector(".traffic-light");
+
+	function changeColor() {
+		if(currentColor === colors.length - 1) {
+			currentColor = 0;
+		} else {
+			currentColor++;
+		}
+	}
+
+	function setColor() {
+		var color = colors[currentColor];
+		var lamp = trafficLight.children[currentColor];
+
+		for(var i = 0; i < trafficLight.children.length; i++) {
+			trafficLight.children[i].className = "";
+			trafficLight.children[i].classList.add("lamp");
+		}
+
+		lamp.classList.add(color);
+	}
+
+	function timer() {
+		changeColor();
+		setColor();
+	}
+
+	function init() {
+		setColor();
+		setInterval(timer, 1000)
+	}
+
+
+
+	init();
+</script>
+
+</body>
+</html>

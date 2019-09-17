@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script>
+	var input = `
+	{  
+	  "graph": {  
+	    "blocks": [  
+	      {  
+	        "inputs": [],  
+	        "outputs": [  
+	          {  
+	            "id": "a1"  
+	          },  
+	          {  
+	            "id": "a2"  
+	          }  
+	        ],  
+	        "maxConnections": 2  
+	      },  
+	      {  
+	        "inputs": [  
+	          {  
+	            "id": "a3"  
+	          },  
+	          {  
+	            "id": "a4"  
+	          }  
+	        ],  
+	        "outputs": [],  
+	        "maxConnections": 1  
+	      }  
+	    ],  
+	    "connections": [  
+	      {  
+	        "id": "c0",  
+	        "source": "a1",  
+	        "target": "a3"  
+	      }  
+	    ]  
+	  },  
+	  "connections": [  
+	    {  
+	      "id": "c1",  
+	      "source": "a2",  
+	      "target": "a4"  
+	    }  
+	  ]  
+	}`;
+
+	input = JSON.parse(input);
+
+	var results = {  
+				  succeeded: [],  
+				  failed: [] 
+				}
+
+	var blocksInput = [];
+	var blocksOutput = [];
+
+	for(var i = 0; i < input.graph.blocks.length; i++) {
+		//console.log(input.graph.blocks[i].inputs.length)
+		if(input.graph.blocks[i].inputs.length > 0) {
+			blocksInput.push(input.graph.blocks[i])
+		}
+		if(input.graph.blocks[i].outputs.length > 0) {
+			blocksOutput.push(input.graph.blocks[i])
+		}
+	}
+
+	for(var i = 0; i < input.connections.length; i++) {
+		var connection = input.connections[i];
+
+		for(var j = 0; j < blocksOutput.length; j++) {
+			for(var k = 0; k < blocksOutput[j].outputs.length; k++) {
+				if(connection.source === blocksOutput[j].outputs[k].id) {
+					console.log("connection!!!!!!!!")
+				}
+			}
+		}
+		//connection.source
+	}
+</script>
+
+</body>
+</html>
