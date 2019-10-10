@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Traffic</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+	.field {
+		width: 200px;
+		display: flex;
+		flex-wrap: wrap;
+		border: 1px solid black;
+		position: relative;
+	}
+
+	.cell {
+		width: 20px;
+		height: 20px;
+		border: 1px solid black;
+		box-sizing: border-box;
+	}
+
+	.road {
+		background: grey;
+	}
+
+	.road-start {
+		background: yellow;
+	}
+
+	.traffic-light {
+		width: 20px;
+		height: 20px;
+		background: red;
+	}
+
+	.car {
+		width: 10px;
+		height: 10px;
+		background: red;
+		border-radius: 50%;
+		position: absolute;
+	}
+</style>
+
+<div class="field"></div>
+
+<script>
+	var field = document.querySelector(".field");
+	var map = {
+		roads: [
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,1,0,0,0,0,0],
+			[0,0,0,0,2,0,0,0,0,0]
+		],
+		trafficLights:[
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,2,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0]
+		]
+	}
+	// roads
+	// 0 - empty
+	// 1 - road
+	// 2 - car
+	// trafficLights
+	// 0 - empty
+	// 1 - stop
+	// 2 - traffic light
+
+	
+	//
+	var car = {
+		element: document.createElement("div"),
+		x: 50,
+		y: 50
+	};
+
+	var trafficLights = [];
+	//
+	car.element.classList.add("car");
+	car.element.style.left = car.x + "px";
+	car.element.style.top = car.y + "px";
+
+	field.appendChild(car.element);
+
+	setInterval(function() {
+		car.y--;
+		car.element.style.top = car.y + "px";
+	}, 100)
+	//
+
+	for(var i = 0; i < map.roads.length; i++) {
+		for(var j = 0; j < map.roads[i].length; j++) {
+			var cell = document.createElement("div");
+
+			cell.classList.add("cell");
+
+			switch(map.roads[i][j]) {
+				case 0:
+					cell.classList.add("empty");
+
+					break;
+				case 1:
+					cell.classList.add("road");
+
+					break;
+				case 2:
+					cell.classList.add("road-start");
+					//
+					car.y = i * 20;
+					car.x = j * 20;
+					car.element.style.left = (car.x + 5) + "px";
+					car.element.style.top = car.y + "px";
+					//
+
+					break;
+			}
+			
+			switch(map.trafficLights[i][j]) {
+				case 2:
+					cell.classList.add("traffic-light");
+					trafficLights.push({
+						element: cell,
+						status: 0,
+						colors: ["red", "orange", "green"],
+						switching: function() {
+							if(this.status == 2) {
+								this.status = 0;
+								this.element.classList.add(this.colors[this.status]);
+							}
+							this.status++;
+							this.element.classList.add(this.colors[this.status]);
+						}
+					})
+
+					break;
+
+			}
+
+			field.appendChild(cell);
+		}
+	}
+
+
+</script>
+
+</body>
+</html>
