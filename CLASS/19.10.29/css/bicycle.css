@@ -1,0 +1,13 @@
+body {
+	margin: 0;
+}
+
+.js-bicycle-container {
+	width: 480px;
+    overflow: hidden;
+}
+
+.js-bicycle-box {
+	transition: all, .25s;
+	width: 10000px;
+}

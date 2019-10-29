@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="css/bicycle.css">
+</head>
+<body>
+	<div class="js-slider"></div>
+
+	<script>
+		class Bicycle {
+			constructor(options) {
+				this.el = document.querySelector(options.el);
+				this.images = options.images;
+				this.box = null;
+				this.count = 0;
+				this.init();
+			}
+
+			next() {
+				if(this.count >= this.images.length - 1) return false;
+
+				this.count++;
+				this.box.style.marginLeft = `${this.count * -480}px`;
+			}
+
+			prev() {
+				if(this.count <= 0) return false;
+
+				this.count--;
+				this.box.style.marginLeft = `${this.count * -480}px`;
+			}
+
+			createBox() {
+				var box = document.createElement("div");
+
+				box.classList.add("js-bicycle-box");
+				this.createImages(box);
+
+				return box;
+			}
+
+			createImages(el) {
+				for(var i = 0; i < this.images.length; i++) {
+					var img = document.createElement("img");
+
+					img.src = this.images[i];
+
+					el.appendChild(img);
+				}
+			}
+
+			init() {
+				this.box = this.createBox();
+				this.el.classList.add("js-bicycle-container");
+				this.el.appendChild(this.box);
+			}
+		}
+
+		var slider = new Bicycle({
+			el: ".js-slider",
+			images: ["img/01.jpg", "img/01.jpg", "img/01.jpg"]
+		})
+	</script>
+</body>
+</html>
