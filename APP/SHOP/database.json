@@ -1,0 +1,16 @@
+{
+	"goods": [
+		{
+			"caption": "iPhone",
+			"price": "9990"
+		},
+		{
+			"caption": "Samsung",
+			"price": "19999"
+		},
+		{
+			"caption": "Alcatel",
+			"price": "29999"
+		}
+	]
+}
