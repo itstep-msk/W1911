@@ -1,13 +1,5 @@
 <?php
 
-/*
-Goods
-
-goods
-get()
-
-*/
-
 class Goods {
 	function __construct($goods) {
 		$this->goods = $goods;

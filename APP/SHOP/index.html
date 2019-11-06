@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<div class="container">
+	<div class="goods"></div>
+	<button class="more">Еще</button>
+</div>
+
+<script>
+	class Goods {
+		constructor(url, el) {
+			this.url = url;
+			this.goodsElement = document.querySelector(el);
+		}
+
+		render(data) {
+			var goods = JSON.parse(data);
+
+			for(var i = 0; i < goods.length; i++) {
+				var good = document.createElement("div");
+				var caption = document.createElement("div");
+				var price = document.createElement("div");
+
+				good.classList.add("good");
+				caption.classList.add("caption");
+				price.classList.add("price");
+
+				caption.innerHTML = goods[i].caption;
+				price.innerHTML = goods[i].price;
+
+				good.appendChild(caption);
+				good.appendChild(price);
+
+				this.goodsElement.appendChild(good);
+			}
+		}
+
+		request(from, to) {
+			var xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = handler.bind(this);
+			xhr.open("GET", `${this.url}?from=${from}&to=${to}`);
+			xhr.send();
+
+			function handler() {
+				if(xhr.readyState === 4 && xhr.status === 200) {
+					this.render(xhr.responseText);
+				}
+			}
+		}
+	}
+
+	var goods = new Goods("http://localhost/19.10.31/goods.php", ".goods");
+	var more = document.querySelector(".more");
+
+	more.addEventListener("click", function() {
+		goods.request(3, 5);
+	})
+
+	goods.request(0, 2);
+</script>
+
+</body>
+</html>

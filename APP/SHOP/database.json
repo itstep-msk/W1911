@@ -11,6 +11,30 @@
 		{
 			"caption": "Alcatel",
 			"price": "29999"
+		},
+		{
+			"caption": "Nokia",
+			"price": "15550"
+		},
+		{
+			"caption": "Siemens",
+			"price": "13990"
+		},
+		{
+			"caption": "BENQ",
+			"price": "27410"
+		},
+		{
+			"caption": "MEIZU",
+			"price": "8790"
+		},
+		{
+			"caption": "YotaPhone",
+			"price": "15690"
+		},
+		{
+			"caption": "Alcatel",
+			"price": "16879"
 		}
 	]
 }
