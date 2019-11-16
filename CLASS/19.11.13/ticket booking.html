@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ticket booking</title>
+</head>
+<body>
+
+<style>
+	.cinema {
+		width: 500px;
+		margin: 100px auto;
+	}
+
+	.empty, .place, .booked {
+		width: 50px;
+	    height: 50px;
+	    display: inline-block;
+	    vertical-align: top;
+	    box-sizing: border-box;
+	    border: 3px solid black;
+	    text-align: center;
+    	line-height: 45px;
+    	font-family: Arial;
+    	cursor: pointer;
+	}
+
+	.empty {
+		border: none;
+	}
+
+	.place {
+	    background: grey;
+	}
+
+	.booked {
+		background: purple;
+	}
+
+	.gift {
+		background-image: url("popcorn.webp");
+		width: 500px;
+	    height: 500px;
+	    background-size: cover;
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    top: 0;
+	    bottom: 0;
+	    margin: auto;
+	    transform: scale(0);
+	    transition: all, 1s;
+	}
+
+	.active {
+		transform: scale(1);
+	}
+</style>
+
+<div class="cinema"></div>
+<div class="gift"></div>
+
+<script>
+	var data = {
+		places: [
+			[0,0,2,1,1,1,1,1,0,0],
+			[0,1,1,1,1,1,1,1,1,0],
+			[1,0,1,1,2,1,1,1,0,1],
+			[1,0,1,1,1,1,1,1,0,1],
+			[1,0,1,1,1,1,1,1,0,1],
+			[0,0,0,0,0,0,0,0,0,0],
+			[1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,0],
+		],
+		price: [
+			[0,0,300,300,300,300,300,300,0,0],
+			[0,300,300,300,300,300,300,300,300,0],
+			[500,0,300,300,300,300,300,300,0,500],
+			[500,0,300,300,300,300,300,300,0,500],
+			[500,0,300,300,300,300,300,300,0,500],
+			[0,0,0,0,0,0,0,0,0,0],
+			[700,700,700,700,700,700,700,700,700,700],
+			[0,700,700,700,700,700,700,700,700,0],
+		],
+		gift:[
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[1,0,0,0,0,0,0,0,0,0],
+			[1,0,0,0,0,0,0,0,0,0],
+			[1,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0]
+		]
+	};
+
+	class Cimena {
+		constructor(places, price, gift, container, giftElement) {
+			this._places = places;
+			this._price = price;
+			this._gift = gift;
+			this._container = document.querySelector(container);
+			this._giftElement = document.querySelector(giftElement);
+			this._init();
+		}
+
+		_createPlace(type) {
+			var place = document.createElement("div");
+
+			place.classList.add(type);
+
+			return place;
+		}
+
+		_render() {
+			this._container.innerHTML = "";
+
+			for(var i = 0; i < this._places.length; i++) {
+				for(var j = 0; j < this._places[i].length; j++) {
+					switch(this._places[i][j]) {
+						case 0:
+							var place = this._createPlace("empty");
+
+							break;
+						case 1:
+							var place = this._createPlace("place");
+
+							break;
+						case 2:
+							var place = this._createPlace("booked");
+
+							break;
+					}
+					if(this._price[i][j] !== 0) {
+						place.innerHTML = this._price[i][j];
+					}
+					if(this._gift[i][j] === 1) {
+						place.classList.add("has-gift");
+					}
+
+					place.setAttribute("i", i);
+					place.setAttribute("j", j);
+
+					this._container.appendChild(place);
+				}
+			}
+		}
+
+		_handlerClick() {
+			this._container.addEventListener("click", handler.bind(this))
+
+			function handler(event) {
+				var i = event.target.getAttribute("i");
+				var j = event.target.getAttribute("j");
+
+				if(this._places[i][j] === 1) {
+					this._places[i][j] = 2;
+					this._render();
+				}
+				if(event.target.classList.contains("has-gift")) {
+					this._giftElement.classList.add("active");
+
+					setTimeout(function() {
+						this._giftElement.classList.remove("active");
+					}.bind(this), 1000)
+				}
+			}
+		}
+
+		_init() {
+			this._render();
+			this._handlerClick();
+		}
+	}
+
+	var cinema = new Cimena(data.places, data.price, data.gift, ".cinema", ".gift");
+</script>
+
+</body>
+</html>

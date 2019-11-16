@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To do list OOP</title>
+</head>
+<body>
+
+<div class="app">
+	<input class="text">
+	<input type="submit" class="button">
+	<div class="tasks-container"></div>
+</div>
+
+<script>
+	class Tasks {
+		constructor() {
+			this._tasks = [];
+		}
+
+		add(data) {
+			this._tasks.push(data);
+		}
+
+		remove(index) {
+			this._tasks.splice(index, 1);
+		}
+
+		update(index, data) {
+			this._tasks[index] = data;
+		}
+
+		getData() {
+			return this._tasks;
+		}
+	}
+
+	class Task {
+		constructor(content, status) {
+			this.content = content;
+			this.status = status;
+		}
+	}
+
+	class Interface {
+		constructor(params) {
+			this._text = document.querySelector(params.text);
+			this._button = document.querySelector(params.button);
+			this._container = document.querySelector(params.container);
+		}
+
+		render(data) {
+
+		}
+	}
+
+	var tasks = new Tasks();
+	var app = new Interface({
+		text: ".text",
+		button: ".button",
+		container: ".tasks-container"
+	});
+
+	tasks.add(new Task("Купить хлеба", "new"));
+	tasks.add(new Task("Погулять с динозавром", "new"));
+
+	app.render(tasks.getData());
+</script>
+
+</body>
+</html>
